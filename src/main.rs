@@ -26,20 +26,18 @@ async fn main() {
 
     let app = Router::new()
         .nest_service("/assets", serve_dir)
+        .nest("/about", about_router())
         .route("/", get(index))
         .route("/navbar", get(navbar))
         .route("/home", get(home))
         .route("/events", get(events_page))
         .route("/gallery", get(gallery_page))
-        .route("/bylaw", get(bylaw_page))
-        .route("/team", get(team_page))
-        .route("/contact", get(contact_page))
-        .route("/response", post(contact))
         .route("/hiking_club", get(hiking_page))
         .route("/walking_club", get(walking_page))
         .route("/running_club", get(running_page))
         .route("/vattam", get(vattam_page))
         .route("/tamil_school", get(tamil_school_page))
+        .route("/enrollment_guide", get(enrollment_guide))
         .route("/join", get(join_page))
         .route("/sponsors", get(sponsors_page))
         .fallback(not_found);
@@ -92,24 +90,28 @@ async fn sponsors_page() -> Markup {
 }
 async fn home() -> Markup {
     html! {
-        div class=" z-0 relative space-y-8" {
-
+        div class="z-0 relative space-y-8" {
             div class="w-full relative" {
                 img src="assets/img/home_bg.jpeg" class="w-full h-auto opacity-75" alt="Background Image" {}
 
-                div class="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/3 p-4 text-center bg-blue-500 rounded-full" {
-                    div id="notificationBanner" class="font-bold transition-opacity duration-500 opacity-100 text-3xl" {}
+                div class="bg-slate-200 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/3 p-4 text-center rounded-full" id="notificationBanner" {
+                    div class="font-bold transition-opacity duration-500 opacity-100 text-3xl" {}
                 }
             }
             (sponsors_markup())
-
         }
-        (PreEscaped(r#"
+        (PreEscaped(r##"
+        <style>
+          #notificationBanner {
+            transition: opacity 0.5s ease-in-out; /* Smooth opacity transition */
+          }
+        </style>
         <script>
           const events = [
-            '<div class="text-5xl">Tamil School Registration <br> for the upcoming 2024-2025 year <br> is now <a href="https://docs.google.com/document/d/1FAnGN5_vdso0mnCB9KZlDQJQlOnFeeHatiF2CViLgwQ/edit?usp=sharing" class="text-white underline"> open!</a></div>',
-            '<div class="text-5xl"><a class="text-white underline" href="https://chat.whatsapp.com/FjyUCpSVjIQDv04xSnBAZc" >Hiking Club</a>: June 22, Saturday 6.15 am, <a class="text-white underline" href="https://www.alltrails.com/trail/us/new-jersey/normanook-tower-via-appalachian-trail-loop?sh=bcs169">Normanook Tower via Appalachian Trail Loop</a></div>',
-            'Run on Wednesday'
+            '<div id="event" class="text-2xl">Tamil School Registration <br>for the upcoming 2024-2025 year<br>is now<a hx-get="/enrollment_guide" hx-trigger="click" hx-target="#page" class="text-blue-600 underline"> open!</a></div>',
+
+            '<div id="event" class="text-2xl"><a class="text-blue-600 underline" href="https://chat.whatsapp.com/FjyUCpSVjIQDv04xSnBAZc" >Hiking Club</a>: June 22, Saturday 6.15 am, <a class="text-blue-600 underline" href="https://www.alltrails.com/trail/us/new-jersey/normanook-tower-via-appalachian-trail-loop?sh=bcs169">Normanook Tower via Appalachian Trail Loop</a></div>',
+            '<div id="event" class="text-2xl">Run on Wednesday</div>'
           ];
           let eventIndex = 0;
 
@@ -121,16 +123,17 @@ async fn home() -> Markup {
               banner.innerHTML = events[eventIndex];
               banner.style.opacity = 1; // Fade in
               eventIndex = (eventIndex + 1) % events.length;
+             htmx.process(document.getElementById('event'));
+
             }, 500); // Wait for fade out to complete before changing text
           }
 
           setInterval(updateBanner, 5000); // Change event every 5 seconds
           updateBanner(); // Initial update
         </script>
-        "#))
+        "##))
     }
 }
-
 async fn navbar() -> Markup {
     html! {
         nav id="navb" class=" p-4"{
@@ -159,15 +162,15 @@ async fn navbar() -> Markup {
                         }
                         div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-10"{
                             a class="hover:text-blue-700 hover:underline px-4 py-2"
-                              hx-get="/bylaw" hx-trigger="click" hx-target="#page" {
+                              hx-get="/about/bylaw" hx-trigger="click" hx-target="#page" {
                                 "Bylaw"
                             }
                             a class="hover:text-blue-700 px-4 py-2"
-                              hx-get="/team" hx-trigger="click" hx-target="#page" {
+                              hx-get="/about/team" hx-trigger="click" hx-target="#page" {
                                 "Our Team"
                             }
                             a class="hover:text-blue-700 px-4 py-2"
-                              hx-get="/faq" hx-trigger="click" hx-target="#page" {
+                              hx-get="/about/faq" hx-trigger="click" hx-target="#page" {
                                 "FAQ's"
                             }
                             a class="hover:text-blue-700 px-4 py-2"
@@ -178,7 +181,7 @@ async fn navbar() -> Markup {
 
 
                             a class="hover:text-blue-700 px-4 py-2"
-                              hx-get="/contact" hx-trigger="click" hx-target="#page" {
+                              hx-get="/about/contact" hx-trigger="click" hx-target="#page" {
                                 "Contact Us"
                             }
 

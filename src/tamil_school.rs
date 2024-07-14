@@ -149,3 +149,19 @@ pub async fn tamil_school_page() -> Markup {
         }
     }
 }
+pub async fn enrollment_guide() -> Markup {
+    html! {
+        div class="container mx-auto px-4 py-8 text-center" {
+                    h1 class="text-3xl font-bold mb-4" { "Enrollment Guide" }
+
+                    // Embedding PDF using iframe
+                    div class="w-full h-screen overflow-y-auto border border-gray-300 shadow-lg rounded-lg" {
+                        iframe
+                            src="assets/img/Enrollment Guide 2024-25.pdf"
+                            class="w-full h-full"
+                            title="Embedded PDF Viewer"
+                            { "Your browser does not support PDF viewing. You can download the PDF file <a href=\"{pdf_url}\">here</a> instead." }
+                    }
+                }
+    }
+}

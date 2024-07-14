@@ -24,7 +24,7 @@ pub async fn gallery_page() -> Markup {
                             div class="grid grid-cols-2 sm:grid-cols-3 gap-4" {
                                 // Image 1
                                 div class="space-y-2" {
-                                    img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihalqTBP-9htcJ5jQUlw8VvzwNAlomVh6iAxx1pxnCVvi2XYiSLRhJvTPqsZqmEIwu3MdU3IyJbg-kQhn9Fb6u4sCCvsgpvxsVE=s1600-rw-v1" alt="Photo 1" class="rounded-lg object-cover w-full h-full";
+                                    img href="" src="https://lh3.googleusercontent.com/drive-viewer/AKGpihalqTBP-9htcJ5jQUlw8VvzwNAlomVh6iAxx1pxnCVvi2XYiSLRhJvTPqsZqmEIwu3MdU3IyJbg-kQhn9Fb6u4sCCvsgpvxsVE=s1600-rw-v1" alt="Photo 1" class="rounded-lg object-cover w-full h-full";
                                     p class="text-center text-gray-700" {"Event 1 Title"}
                                 }
 

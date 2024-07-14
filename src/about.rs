@@ -1,9 +1,19 @@
-use axum::Form;
+use axum::{
+    routing::{get, post},
+    Form, Router,
+};
 use maud::{html, Markup};
 use serde::Deserialize;
 
 use crate::links::{EMAIL, WHATSAPP_LINK};
 
+pub fn about_router() -> Router {
+    return Router::new()
+        .route("/bylaw", get(bylaw_page))
+        .route("/team", get(team_page))
+        .route("/contact", get(contact_page))
+        .route("/contact_response", post(contact_response));
+}
 pub async fn bylaw_page() -> Markup {
     html! {
         div class="container mx-auto px-4 py-8 text-center" {
@@ -13,22 +23,6 @@ pub async fn bylaw_page() -> Markup {
                     div class="w-full h-screen overflow-y-auto border border-gray-300 shadow-lg rounded-lg" {
                         iframe
                             src="assets/img/NJTTS Bylaws.pdf"
-                            class="w-full h-full"
-                            title="Embedded PDF Viewer"
-                            { "Your browser does not support PDF viewing. You can download the PDF file <a href=\"{pdf_url}\">here</a> instead." }
-                    }
-                }
-    }
-}
-pub async fn enrollment_guide() -> Markup {
-    html! {
-        div class="container mx-auto px-4 py-8 text-center" {
-                    h1 class="text-3xl font-bold mb-4" { "Enrollment Guide" }
-
-                    // Embedding PDF using iframe
-                    div class="w-full h-screen overflow-y-auto border border-gray-300 shadow-lg rounded-lg" {
-                        iframe
-                            src="assets/img/Enrollment Guide 2024-25.pdf"
                             class="w-full h-full"
                             title="Embedded PDF Viewer"
                             { "Your browser does not support PDF viewing. You can download the PDF file <a href=\"{pdf_url}\">here</a> instead." }
@@ -73,7 +67,7 @@ pub async fn contact_page() -> Markup {
                     }
                 }
                 div class="w-full md:w-2/3 bg-white p-8 rounded-lg shadow-lg" {
-                    form id="contact_form" hx-post="/response" hx-swap="innerHTML" hx-target="#response" class="space-y-6" {
+                    form id="contact_form" hx-post="/contact_response" hx-swap="innerHTML" hx-target="#response" class="space-y-6" {
                         div class="flex space-x-4" {
                             div class="w-1/2" {
                                 label for="first_name" class="block text-sm font-medium text-gray-700" { "First Name" }
@@ -116,7 +110,7 @@ pub struct FormData {
     message: String,
 }
 
-pub async fn contact(Form(data): Form<FormData>) -> Markup {
+pub async fn contact_response(Form(data): Form<FormData>) -> Markup {
     html! {
             div {
                 h2 { "Thank you for contacting us, " (data.first_name) "!" }
