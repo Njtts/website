@@ -26,24 +26,26 @@ pub async fn walking_page() -> Markup {
 
 pub async fn hiking_page() -> Markup {
     html! {
-        section class="bg-white py-8 lg:py-16 px-4 mx-auto max-w-screen-md" {
-            h2 class="mb-4 text-center text-4xl tracking-tight font-extrabold text-gray-900" { "Explore, Connect, and Conquer Nature: Welcome to Our TTS Hiking Club" }
+        section class="bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url('assets/img/hiking.jpeg');" {
+            div class="bg-white bg-opacity-90 py-8 lg:py-16 px-4 mx-auto max-w-screen-md relative z-10" {
+                h2 class="mb-4 text-center text-4xl tracking-tight font-extrabold text-gray-900" { "Explore, Connect, and Conquer Nature: Welcome to Our TTS Hiking Club" }
 
-            div class="text-center mb-8" {
-                img src="assets/img/hiking_code.jpeg" alt="QR Code" class="mx-auto mb-4" {}
-                a href="https://chat.whatsapp.com/FjyUCpSVjIQDv04xSnBAZc" target="_blank" rel="noopener noreferrer" class="text-green-500 hover:underline" { "Join Our Whatsapp Group!" }
-            }
-            p class="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl" {
-               "In the gentle rhythm of each step lies a pathway to serenity, and our TTS Walking Club is your guide to this tranquil journey. Nestled within the heart of our vibrant community, our Walking Club invites you to embrace the simple joys of walking and the profound connections it fosters – with nature, with others, and with oneself. Whether you're seeking a leisurely stroll or a brisk stride, our club offers a sanctuary for walkers of all paces and preferences."
-            }
-            p class="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl" {
-                "Here, amidst the beauty of our surroundings, we celebrate the art of slow living and the rejuvenating power of movement. From charming neighborhood streets to scenic trails winding through parks and green spaces, our expeditions are as diverse as they are delightful."
-            }
-            p class="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl" {
-               "Join us as we embark on a voyage of discovery, meandering through hidden pathways, uncovering hidden gems, and savoring the beauty of each moment along the way. Whether you're seeking solace in solitude or companionship amidst kindred spirits, our Walking Club offers a welcoming community where connections flourish and friendships bloom."
-            }
-            p class="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl" {
-                "So lace up your shoes, leave your worries behind, and let's wander together as we explore the beauty that surrounds us, one step at a time."
+                div class="text-center mb-8" {
+                    img src="assets/img/hiking_code.jpeg" alt="QR Code" class="mx-auto mb-4" {}
+                    a href="https://chat.whatsapp.com/FjyUCpSVjIQDv04xSnBAZc" target="_blank" rel="noopener noreferrer" class="text-green-500 hover:underline" { "Join Our Whatsapp Group!" }
+                }
+                p class="mb-8 lg:mb-16 font-light text-center sm:text-xl" {
+                   "In the gentle rhythm of each step lies a pathway to serenity, and our TTS Walking Club is your guide to this tranquil journey. Nestled within the heart of our vibrant community, our Walking Club invites you to embrace the simple joys of walking and the profound connections it fosters – with nature, with others, and with oneself. Whether you're seeking a leisurely stroll or a brisk stride, our club offers a sanctuary for walkers of all paces and preferences."
+                }
+                p class="mb-8 lg:mb-16 font-light text-center sm:text-xl" {
+                    "Here, amidst the beauty of our surroundings, we celebrate the art of slow living and the rejuvenating power of movement. From charming neighborhood streets to scenic trails winding through parks and green spaces, our expeditions are as diverse as they are delightful."
+                }
+                p class="mb-8 lg:mb-16 font-light text-center sm:text-xl" {
+                   "Join us as we embark on a voyage of discovery, meandering through hidden pathways, uncovering hidden gems, and savoring the beauty of each moment along the way. Whether you're seeking solace in solitude or companionship amidst kindred spirits, our Walking Club offers a welcoming community where connections flourish and friendships bloom."
+                }
+                p class="mb-8 lg:mb-16 font-light text-center sm:text-xl" {
+                    "So lace up your shoes, leave your worries behind, and let's wander together as we explore the beauty that surrounds us, one step at a time."
+                }
             }
         }
     }

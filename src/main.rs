@@ -92,7 +92,7 @@ async fn home() -> Markup {
     html! {
         div class="z-0 relative space-y-8" {
             div class="w-full relative" {
-                img src="assets/img/home_bg.jpeg" class="w-full h-auto opacity-75" alt="Background Image" {}
+                img src="assets/img/home_bg.jpeg" class="w-full h-auto" alt="Background Image" {}
 
                 div class="bg-slate-200 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/3 p-4 text-center rounded-full" id="notificationBanner" {
                     div class="font-bold transition-opacity duration-500 opacity-100 text-3xl" {}
