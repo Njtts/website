@@ -108,10 +108,10 @@ async fn home() -> Markup {
         </style>
         <script>
           const events = [
-            '<div id="event" class="text-2xl">Tamil School Registration <br>for the upcoming 2024-2025 year<br>is now<a hx-get="/enrollment_guide" hx-trigger="click" hx-target="#page" class="text-blue-600 underline"> open!</a></div>',
+            '<div id="event" class="font-poppins text-2xl">Tamil School Registration <br>for the upcoming 2024-2025 year<br>is now<a hx-get="/enrollment_guide" hx-trigger="click" hx-target="#page" class="text-blue-600 underline"> open!</a></div>',
 
-            '<div id="event" class="text-2xl"><a class="text-blue-600 underline" href="https://chat.whatsapp.com/FjyUCpSVjIQDv04xSnBAZc" >Hiking Club</a>: June 22, Saturday 6.15 am, <a class="text-blue-600 underline" href="https://www.alltrails.com/trail/us/new-jersey/normanook-tower-via-appalachian-trail-loop?sh=bcs169">Normanook Tower via Appalachian Trail Loop</a></div>',
-            '<div id="event" class="text-2xl">Run on Wednesday</div>'
+            '<div id="event" class="font-poppins text-2xl"><a class="text-blue-600 underline" href="https://chat.whatsapp.com/FjyUCpSVjIQDv04xSnBAZc" >Hiking Club</a>: June 22, Saturday 6.15 am, <a class="text-blue-600 underline" href="https://www.alltrails.com/trail/us/new-jersey/normanook-tower-via-appalachian-trail-loop?sh=bcs169">Normanook Tower via Appalachian Trail Loop</a></div>',
+            '<div id="event" class="font-poppins text-2xl">Run on Wednesday</div>'
           ];
           let eventIndex = 0;
 

@@ -11,6 +11,15 @@ fn body(content: Markup) -> Markup {
             script src="assets/js/vendor/modernizr-3.11.2.min.js" {}
             script src="assets/js/plugins.js" {}
             script src="assets/js/main.js" {}
+            link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Noto+Sans+Tamil:wght@700&display=swap" rel="stylesheet";
+            style {
+                                ".font-poppins {
+                                    font-family: 'Poppins', sans-serif;
+                                }
+                                .font-noto-tamil {
+                                    font-family: 'Noto Sans Tamil', sans-serif;
+                                }"
+                            }
 
                 div class="min-h-screen flex flex-col" {
                                 (navbar_markup())
