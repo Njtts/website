@@ -22,7 +22,7 @@ pub async fn bylaw_page() -> Markup {
                     // Embedding PDF using iframe
                     div class="w-full h-screen overflow-y-auto border border-gray-300 shadow-lg rounded-lg" {
                         iframe
-                            src="assets/img/NJTTS Bylaws.pdf"
+                            src="assets/img/NJTTS Bylaw.pdf"
                             class="w-full h-full"
                             title="Embedded PDF Viewer"
                             { "Your browser does not support PDF viewing. You can download the PDF file <a href=\"{pdf_url}\">here</a> instead." }
