@@ -33,14 +33,14 @@ fn body(content: Markup) -> Markup {
             }
 
             div class="min-h-screen flex flex-col" {
-                // Hamburger Menu for small screens
-                div class="md:hidden fixed top-4 right-4 flex items-center justify-between p-4 z-50" {
-                            button onclick="toggleSideMenu()" class="hamburger" {
-                                svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" {
-                                    path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16m-7 6h7" {}
-                                }
-                            }
-                        }
+                // // Hamburger Menu for small screens
+                // div class="md:hidden absolute top-2 left-2 flex items-center justify-between p-4 z-50" {
+                //             button onclick="toggleSideMenu()" class="hamburger" {
+                //                 svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" {
+                //                     path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16m-7 6h7" {}
+                //                 }
+                //             }
+                //         }
                 // Navbar for larger screens
                 div class="hidden md:flex flex-col" {
                     (navbar_markup())
@@ -71,7 +71,7 @@ pub fn mobile_side_menu_markup() -> Markup {
                 }
             }
             div class="flex justify-center mb-4" {
-                        img src="assets/img/logo.jpeg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
+                        img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
                     }
 
             // Dropdowns

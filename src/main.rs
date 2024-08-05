@@ -6,6 +6,7 @@ use axum::{
     Form, Router,
 };
 use dotenv::dotenv;
+use links::{FACEBOOK_LINK, INSTAGRAM_LINK, WHATSAPP_LINK};
 use maud::{html, Markup, PreEscaped, DOCTYPE};
 use mongodb::{bson::Document, options::ClientOptions, Client};
 use tokio::net::TcpListener;
@@ -102,7 +103,6 @@ async fn index() -> Markup {
 pub fn sponsors_markup() -> Markup {
     html! {
         div class="w-full flex flex-col items-center mt-8 bg-vertical-to-pink relative" {
-            h2 class="text-3xl font-bold text-center text-gray-800 mb-8" { "2024 Annual Sponsors" }
 
             div class="relative w-full max-w-3xl" {
                 div class="carousel overflow-hidden relative" {
@@ -175,11 +175,142 @@ async fn home() -> Markup {
     html! {
         div class="z-0 relative" {
             div class="w-full relative" {
-                img src="assets/img/home_bg.jpeg" class="w-full h-auto" alt="Background Image" {}
 
-                div class="bg-slate-200 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/3 p-4 text-center rounded-full" id="notificationBanner" {
-                    div class="font-bold transition-opacity duration-500 opacity-100 text-3xl" {}
+                div class="flex bg-vertical-to-pink" {
+                            img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
+                            div class="flex flex-col"{
+                                div class="flex justify-center flex-grow"{
+
+
+                                     a class="hover:text-blue-700 hover:underline px-4 py-2 rounded"
+                                       hx-get="/home" hx-trigger="click" hx-target="#page" {
+                                         "Home"
+                                     }
+                                     a class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
+                                       hx-get="/events" hx-trigger="click" hx-target="#page" {
+                                         "Events"
+                                     }
+
+                                      a class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
+                                        hx-get="/gallery" hx-trigger="click" hx-target="#page" {
+                                          "Gallery"
+                                      }
+
+
+
+                                }
+                                div class="flex justify-center flex-grow"{
+                                     div class="relative"{
+                                         button type="button" class="dropdown-toggle py-2 px-3 hover:bg-gray-100 flex items-center gap-2 rounded"{
+                                             span class="select-none"{
+                                                 "About"
+                                             }
+                                             svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"{
+                                               path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"{}
+                                             }
+                                         }
+                                         div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-10"{
+                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                               hx-get="/about/bylaw" hx-trigger="click" hx-target="#page" {
+                                                 "Bylaw"
+                                             }
+                                             a class="hover:text-blue-700 px-4 py-2"
+                                               hx-get="/about/team" hx-trigger="click" hx-target="#page" {
+                                                 "Our Team"
+                                             }
+                                             a class="hover:text-blue-700 px-4 py-2"
+                                               hx-get="/about/faq" hx-trigger="click" hx-target="#page" {
+                                                 "FAQ's"
+                                             }
+                                             a class="hover:text-blue-700 px-4 py-2"
+                                               hx-get="/sponsors" hx-trigger="click" hx-target="#page" {
+                                                 "Our Sponsors"
+                                             }
+
+
+
+                                             a class="hover:text-blue-700 px-4 py-2"
+                                               hx-get="/about/contact" hx-trigger="click" hx-target="#page" {
+                                                 "Contact Us"
+                                             }
+
+                                         }
+                                     }
+
+
+
+                                     div class="relative"{
+
+                                         button type="button" class="dropdown-toggle py-2 px-3 hover:bg-gray-100 flex items-center gap-2 rounded"{
+                                             span class="select-none"{
+                                                 "Community"
+                                             }
+                                             svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"{
+                                               path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"{}
+                                             }
+                                         }
+                                         div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-10"{
+                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                               hx-get="/library" hx-trigger="click" hx-target="#page" {
+                                                 "Tamil Library"
+                                             }
+
+                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                               hx-get="/vattam" hx-trigger="click" hx-target="#page" {
+                                                 "NJ Vasagar Vattam"
+                                             }
+
+
+                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                               hx-get="/walking_club" hx-trigger="click" hx-target="#page" {
+                                                 "Walking Club"
+                                             }
+                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                               hx-get="/hiking_club" hx-trigger="click" hx-target="#page" {
+                                                 "Hiking Club"
+                                             }
+                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                               hx-get="/running_club" hx-trigger="click" hx-target="#page" {
+                                                 "Running Club"
+                                             }
+                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                               hx-get="/tamil_school" hx-trigger="click" hx-target="#page" {
+                                                 "NJ Tamil Schools"
+                                             }
+
+                                         }
+
+                                     }
+
+                                     }
+
+
+
+
+
+                            }
+
+
+                        }
+
+                div class="flex w-full bg-orange-500"{
+                    div class="flex items-center space-x-4 justify-between bg-orange-500" {
+                        a href=(FACEBOOK_LINK) class="" { i class="fab fa-facebook" {} }
+                        a href=(INSTAGRAM_LINK) class="" { i class="fab fa-instagram" {} }
+                        a href=(WHATSAPP_LINK) class="" { i class="fab fa-whatsapp" {} }
+                    }
+
+
+
                 }
+
+                img src="assets/img/home_bg.jpeg" class="w-full h-auto" alt="Background Image" {}
+                div class="bg-slate-200 text-center h-20 flex items-center justify-center" id="notificationBanner" {
+                            div class="font-bold transition-opacity duration-500 opacity-100 text-3xl" {
+                            }
+                        }
+
+
             }
             (sponsors_markup())
         }
@@ -191,11 +322,11 @@ async fn home() -> Markup {
         </style>
         <script>
         const events = [
-            '<div id="event" class="font-roboto text-xl sm:text-2xl md:text-3xl lg:text-4xl">Tamil School Registration <br>for the upcoming 2024-2025 year<br>is now <a hx-get="/enrollment_guide" hx-trigger="click" hx-target="#page" class="text-blue-600 underline">open!</a></div>',
+            '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl">Tamil School Registration for the upcoming 2024-2025 year is now <a hx-get="/enrollment_guide" hx-trigger="click" hx-target="#page" class="text-blue-600 underline">open!</a></div>',
 
-            '<div id="event" class="font-roboto text-xl sm:text-2xl md:text-3xl lg:text-4xl"><a class="text-blue-600 underline" href="https://chat.whatsapp.com/FjyUCpSVjIQDv04xSnBAZc">Hiking Club</a>: June 22, Saturday 6.15 am, <a class="text-blue-600 underline" href="https://www.alltrails.com/trail/us/new-jersey/normanook-tower-via-appalachian-trail-loop?sh=bcs169">Normanook Tower via Appalachian Trail Loop</a></div>',
+            '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl"><a class="text-blue-600 underline" href="https://chat.whatsapp.com/FjyUCpSVjIQDv04xSnBAZc">Hiking Club</a>: June 22, Saturday 6.15 am, <a class="text-blue-600 underline" href="https://www.alltrails.com/trail/us/new-jersey/normanook-tower-via-appalachian-trail-loop?sh=bcs169">Normanook Tower via Appalachian Trail Loop</a></div>',
 
-            '<div id="event" class="font-roboto text-xl sm:text-2xl md:text-3xl lg:text-4xl">Run on Wednesday</div>'
+            '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl">Run on Wednesday</div>'
         ];
 
           let eventIndex = 0;
@@ -226,7 +357,7 @@ async fn navbar() -> Markup {
             div class="container mx-auto flex items-center justify-between gap-6"{
                 div class = "flex items-center gap-4"{
 
-                    img src="assets/img/logo.jpeg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
+                    img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
 
                 }
                div class="flex justify-center flex-grow"{
