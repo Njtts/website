@@ -27,7 +27,7 @@ pub async fn walking_page() -> Markup {
 pub async fn hiking_page() -> Markup {
     html! {
         section class="bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url('assets/img/hiking.jpeg');" {
-            div class="bg-white bg-opacity-90 py-8 lg:py-16 px-4 mx-auto max-w-screen-md relative z-10" {
+            div class="bg-white bg-opacity-90 py-8 lg:py-16 px-4 mx-auto max-w-screen-md relative z-5" {
                 h2 class="mb-4 text-center text-4xl tracking-tight font-extrabold text-gray-900" { "Explore, Connect, and Conquer Nature: Welcome to Our TTS Hiking Club" }
 
                 div class="text-center mb-8" {

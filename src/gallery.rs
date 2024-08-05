@@ -2,7 +2,7 @@ use maud::{html, Markup, PreEscaped};
 
 pub async fn gallery_page() -> Markup {
     html! {
-        div class="flex justify-center items-center py-12 px-4 sm:px-6 lg:px-8" {
+        div class="flex justify-center items-center py-12 px-4 sm:px-6 lg:px-8 bg-vertical-to-pink" {
             // Gallery container
             div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" {
                 div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-10" {

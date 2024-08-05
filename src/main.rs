@@ -1,10 +1,15 @@
+use std::sync::Arc;
+
 use axum::{
+    extract::State,
     routing::{get, post},
     Form, Router,
 };
+use dotenv::dotenv;
 use maud::{html, Markup, PreEscaped, DOCTYPE};
+use mongodb::{bson::Document, options::ClientOptions, Client};
 use tokio::net::TcpListener;
-use tower_http::services::ServeDir;
+use tower_http::{add_extension::AddExtensionLayer, services::ServeDir};
 
 mod about;
 mod club;
@@ -19,9 +24,27 @@ use club::*;
 use gallery::*;
 use join::*;
 use tamil_school::*;
-
+#[derive(Clone)]
+pub struct ClientState {
+    client: Arc<Client>,
+}
+async fn connect_to_mongodb() -> mongodb::error::Result<Client> {
+    let uri = std::env::var("MONGODB_URI").expect("MONGODB_URI not set");
+    let mut client_options = ClientOptions::parse(&uri).await?;
+    client_options.app_name = Some("MyApp".to_string());
+    let client = Client::with_options(client_options)?;
+    Ok(client)
+}
 #[tokio::main]
 async fn main() {
+    dotenv().ok();
+    let client = connect_to_mongodb()
+        .await
+        .expect("Failed to connect to MongoDB");
+    let client_state = ClientState {
+        client: Arc::new(client),
+    };
+
     let serve_dir = ServeDir::new("src/static");
 
     let app = Router::new()
@@ -39,7 +62,9 @@ async fn main() {
         .route("/tamil_school", get(tamil_school_page))
         .route("/enrollment_guide", get(enrollment_guide))
         .route("/join", get(join_page))
+        .route("/join_response", post(join_response))
         .route("/sponsors", get(sponsors_page))
+        .with_state(client_state)
         .fallback(not_found);
 
     let listener = TcpListener::bind("0.0.0.0:3300").await.unwrap();
@@ -48,18 +73,17 @@ async fn main() {
 
 async fn vattam_page() -> Markup {
     html! {
-        div class="min-h-screen flex items-center justify-center flex-col space-y-10"{
+        div class="min-h-screen flex items-center justify-center flex-col space-y-10 bg-vertical-to-pink"{
             div class=""{
                 h1 class="text-center text-red-800 text-5xl md:text-7xl lg:text-9xl font-bold "{"Vattam"}
             }
         }
-
     }
 }
 
 async fn events_page() -> Markup {
     html! {
-        div class="min-h-screen flex items-center justify-center flex-col space-y-10"{
+        div class="min-h-screen flex items-center justify-center flex-col space-y-10 bg-vertical-to-pink"{
             div class=""{
                 h1 class="text-center text-red-800 text-5xl md:text-7xl lg:text-9xl font-bold "{"Events"}
             }
@@ -75,22 +99,81 @@ async fn index() -> Markup {
     };
     page::page(content)
 }
-fn sponsors_markup() -> Markup {
+pub fn sponsors_markup() -> Markup {
     html! {
-        div class="w-full flex flex-col items-center mt-8" {
+        div class="w-full flex flex-col items-center mt-8 bg-vertical-to-pink relative" {
+            h2 class="text-3xl font-bold text-center text-gray-800 mb-8" { "2024 Annual Sponsors" }
+
+            div class="relative w-full max-w-3xl" {
+                div class="carousel overflow-hidden relative" {
+                    div class="carousel-items flex transition-transform duration-500 ease-in-out" id="carousel-items" {
+                        // Repeat the following div for each sponsor image
+                        div class="carousel-item min-w-full flex-shrink-0" {
+                            img src="assets/img/sponsor.jpg" class="w-full h-auto" alt="Sponsor 1" {}
+                        }
+                        div class="carousel-item min-w-full flex-shrink-0" {
+                            img src="assets/img/sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
+                        }
+                        div class="carousel-item min-w-full flex-shrink-0" {
+                            img src="assets/img/sponsor.jpg" class="w-full h-auto" alt="Sponsor 3" {}
+                        }
+                    }
+                }
+                // Navigation Controls
+                button onclick="prevSlide()" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full focus:outline-none" {
+                    svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" {
+                        path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" {}
+                    }
+                }
+                button onclick="nextSlide()" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full focus:outline-none" {
+                    svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" {
+                        path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" {}
+                    }
+                }
+            }
+
+            // Carousel Script
+            script {
+                (PreEscaped(r#"
+                    let index = 0;
+
+                    function showSlide(i) {
+                        const slides = document.querySelectorAll('.carousel-item');
+                        const totalSlides = slides.length;
+
+                        // Wrap around if index is out of bounds
+                        index = (i + totalSlides) % totalSlides;
+
+                        // Move carousel items
+                        const offset = -index * 100;
+                        document.getElementById('carousel-items').style.transform = `translateX(${offset}%)`;
+                    }
+
+                    function prevSlide() {
+                        showSlide(index - 1);
+                    }
+
+                    function nextSlide() {
+                        showSlide(index + 1);
+                    }
+                "#))
+            }
+        }
+    }
+}
+
+async fn sponsors_page() -> Markup {
+    html! {
+        div class="w-full flex flex-col items-center mt-8 bg-vertical-to-pink" {
             h2 class="text-3xl font-bold text-center text-gray-800 mb-8" { "2024 Annual Sponsors" }
             img src="assets/img/sponsor-collage.jpg" class="h-auto" alt="Sponsor Collage" {}
         }
 
-
     }
-}
-async fn sponsors_page() -> Markup {
-    sponsors_markup()
 }
 async fn home() -> Markup {
     html! {
-        div class="z-0 relative space-y-8" {
+        div class="z-0 relative" {
             div class="w-full relative" {
                 img src="assets/img/home_bg.jpeg" class="w-full h-auto" alt="Background Image" {}
 
@@ -107,12 +190,14 @@ async fn home() -> Markup {
           }
         </style>
         <script>
-          const events = [
-            '<div id="event" class="font-poppins text-2xl">Tamil School Registration <br>for the upcoming 2024-2025 year<br>is now<a hx-get="/enrollment_guide" hx-trigger="click" hx-target="#page" class="text-blue-600 underline"> open!</a></div>',
+        const events = [
+            '<div id="event" class="font-roboto text-xl sm:text-2xl md:text-3xl lg:text-4xl">Tamil School Registration <br>for the upcoming 2024-2025 year<br>is now <a hx-get="/enrollment_guide" hx-trigger="click" hx-target="#page" class="text-blue-600 underline">open!</a></div>',
 
-            '<div id="event" class="font-poppins text-2xl"><a class="text-blue-600 underline" href="https://chat.whatsapp.com/FjyUCpSVjIQDv04xSnBAZc" >Hiking Club</a>: June 22, Saturday 6.15 am, <a class="text-blue-600 underline" href="https://www.alltrails.com/trail/us/new-jersey/normanook-tower-via-appalachian-trail-loop?sh=bcs169">Normanook Tower via Appalachian Trail Loop</a></div>',
-            '<div id="event" class="font-poppins text-2xl">Run on Wednesday</div>'
-          ];
+            '<div id="event" class="font-roboto text-xl sm:text-2xl md:text-3xl lg:text-4xl"><a class="text-blue-600 underline" href="https://chat.whatsapp.com/FjyUCpSVjIQDv04xSnBAZc">Hiking Club</a>: June 22, Saturday 6.15 am, <a class="text-blue-600 underline" href="https://www.alltrails.com/trail/us/new-jersey/normanook-tower-via-appalachian-trail-loop?sh=bcs169">Normanook Tower via Appalachian Trail Loop</a></div>',
+
+            '<div id="event" class="font-roboto text-xl sm:text-2xl md:text-3xl lg:text-4xl">Run on Wednesday</div>'
+        ];
+
           let eventIndex = 0;
 
           function updateBanner() {
@@ -209,9 +294,10 @@ async fn navbar() -> Markup {
                         }
                         div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-10"{
                             a class="hover:text-blue-700 hover:underline px-4 py-2"
-                              hx-get="/tamil_school" hx-trigger="click" hx-target="#page" {
-                                "NJ Tamil Schools"
+                              hx-get="/library" hx-trigger="click" hx-target="#page" {
+                                "Tamil Library"
                             }
+
                             a class="hover:text-blue-700 hover:underline px-4 py-2"
                               hx-get="/vattam" hx-trigger="click" hx-target="#page" {
                                 "NJ Vasagar Vattam"
@@ -230,19 +316,18 @@ async fn navbar() -> Markup {
                               hx-get="/running_club" hx-trigger="click" hx-target="#page" {
                                 "Running Club"
                             }
-
-
-
-
-
+                            a class="hover:text-blue-700 hover:underline px-4 py-2"
+                              hx-get="/tamil_school" hx-trigger="click" hx-target="#page" {
+                                "NJ Tamil Schools"
+                            }
                         }
                     }
                     }
                     div {
-                                        a hx-get="/join" hx-trigger="click" hx-target="#page" class="text-white bg-orange-600 hover:bg-red-600 px-6 py-3 rounded-lg text-lg font-medium" {
-                                            "Join Us"
-                                        }
-                                    }
+                            a hx-get="/join" hx-trigger="click" hx-target="#page" class="text-white bg-orange-600 hover:bg-red-600 px-6 py-3 rounded-lg text-lg font-medium" {
+                                "Join Us"
+                            }
+                        }
 
 
 

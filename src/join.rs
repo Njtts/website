@@ -1,9 +1,20 @@
+use axum::{extract::State, Form};
+use lettre::{
+    message::header::ContentType, transport::smtp::authentication::Credentials, Message,
+    SmtpTransport, Transport,
+};
 use maud::{html, Markup};
+use mongodb::Collection;
+use serde::{Deserialize, Serialize};
 
-use crate::links::{EMAIL, WHATSAPP_LINK};
+use crate::{
+    links::{EMAIL, PHONE, WHATSAPP_LINK},
+    ClientState,
+};
 
 pub async fn join_page() -> Markup {
     html! {
+        div class="bg-vertical-to-pink"{
         div class="max-w-7xl mx-auto p-8" {
             h1 class="text-3xl font-bold mb-6 text-center" { "Join Our Community" }
             div class="md:flex md:justify-between md:items-start space-y-6 md:space-y-0" {
@@ -14,7 +25,7 @@ pub async fn join_page() -> Markup {
                         // Phone Number
                         div class="flex items-center space-x-4" {
                             i class="fas fa-phone-alt fa-2x text-gray-900" {}
-                            span class="text-gray-900 text-lg" { "123-456-7890" }
+                            span class="text-gray-900 text-lg" { (PHONE) }
                         }
                         // Email
                         div class="flex items-center space-x-4" {
@@ -34,7 +45,8 @@ pub async fn join_page() -> Markup {
 
                 // Join Form Section
                 div class="w-full md:w-2/3 bg-white p-8 rounded-lg shadow-lg" {
-                    form action="/submit_form" method="post" class="space-y-6" {
+                    form id="join_form" hx-post="/join_response" hx-swap="innerHTML" hx-target="#response" class="space-y-6" {
+
                         // First Name and Last Name
                         div class="flex space-x-4" {
                             div class="w-1/2" {
@@ -72,8 +84,65 @@ pub async fn join_page() -> Markup {
                             button type="submit" class="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600" { "Submit" }
                         }
                     }
+                    div id="response"{}
+
                 }
+
             }
         }
+        }
+    }
+}
+#[derive(Clone, Serialize, Deserialize)]
+pub struct JoinFormData {
+    first_name: String,
+    last_name: String,
+    email: String,
+    phone: String,
+    agree_emails: bool,
+}
+
+pub async fn join_response(State(s): State<ClientState>, Form(data): Form<JoinFormData>) -> Markup {
+    let smtp_username = std::env::var("SMTP_USERNAME").expect("SMTP_USERNAME must be set");
+    let smtp_password = std::env::var("SMTP_PASSWORD").expect("SMTP_PASSWORD must be set");
+    let smtp_server = std::env::var("SMTP_SERVER").expect("SMTP_SERVER must be set");
+    let email = Message::builder()
+        .from(smtp_username.parse().unwrap())
+        .to(data.email.parse().unwrap())
+        .subject(format!("Contact from {}", data.email))
+        .header(ContentType::TEXT_PLAIN)
+        .body("Thanks for joining njtts".to_string())
+        .unwrap();
+
+    let creds = Credentials::new(smtp_username.to_owned(), smtp_password.to_owned());
+
+    // Open a remote connection to gmail
+    let mailer = SmtpTransport::relay(smtp_server.as_str())
+        .unwrap()
+        .credentials(creds)
+        .build();
+
+    // Send the email
+    match mailer.send(&email) {
+        Ok(_) => println!("Email sent successfully!"),
+        Err(e) => panic!("Could not send email: {e:?}"),
+    }
+    // Insert data into MongoDB
+    let db = s.client.database("tts"); // replace with your DB name
+    let collection: Collection<JoinFormData> = db.collection("users"); // replace with your collection name
+
+    match collection.insert_one(data.clone()).await {
+        Ok(_) => println!("Form data inserted successfully!"),
+        Err(e) => eprintln!("Failed to insert form data: {:?}", e),
+    };
+
+    html! {
+            div {
+                h2 { "Thank you for joining us, " (data.first_name) "!" }
+                br;
+            }
+            script {
+                "document.getElementById('join_form').style.display = 'none';"
+            }
     }
 }
