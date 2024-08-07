@@ -1,6 +1,6 @@
 use crate::{
     links::{EMAIL, FACEBOOK_LINK, INSTAGRAM_LINK, PHONE, PHONE_LINK, WHATSAPP_LINK},
-    navbar, strings,
+    mobile_navbar, navbar, strings,
 };
 use maud::{html, Markup, DOCTYPE};
 fn body(content: Markup) -> Markup {
@@ -12,45 +12,12 @@ fn body(content: Markup) -> Markup {
             script src="assets/js/main.js" {}
             link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet";
 
-            style {
-                "
-                .hamburger {
-                    cursor: pointer;
-                }
-                #side-menu {
-                    transform: translateX(-100%);
-                }
-                #side-menu.show {
-                    transform: translateX(0);
-                }"
-            }
-
-            script {
-                "function toggleSideMenu() {
-                    var sideMenu = document.getElementById('side-menu');
-                    sideMenu.classList.toggle('show');
-                }"
-            }
-
             div class="min-h-screen flex flex-col" {
-                // // Hamburger Menu for small screens
-                // div class="md:hidden absolute top-2 left-2 flex items-center justify-between p-4 z-50" {
-                //             button onclick="toggleSideMenu()" class="hamburger" {
-                //                 svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" {
-                //                     path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16m-7 6h7" {}
-                //                 }
-                //             }
-                //         }
-                // Navbar for larger screens
                 div class="hidden md:flex flex-col" {
                     (navbar_markup())
                 }
+                (mobile_navbar())
 
-                // Side Menu for small screens
-
-                div id="side-menu" class="fixed top-0 left-0 h-full w-64 bg-vertical-to-pink py-2 px-4 flex flex-col space-y-4 transform -translate-x-full transition-transform duration-300 ease-in-out z-50"{
-                    (mobile_side_menu_markup())
-            }
 
                 div class="flex-grow" {
                     (content)
@@ -61,92 +28,6 @@ fn body(content: Markup) -> Markup {
         }
     }
 }
-pub fn mobile_side_menu_markup() -> Markup {
-    html! {
-        div class="flex flex-col h-full p-4" {
-            // Close button
-            button onclick="toggleSideMenu()" class="mb-4" {
-                svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" {
-                    path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" {}
-                }
-            }
-            div class="flex justify-center mb-4" {
-                        img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
-                    }
-
-            // Dropdowns
-            div class="flex flex-col space-y-4 text-lg" {
-                a class="rounded"
-                  hx-get="/home" hx-trigger="click" hx-target="#page" {
-                    "Home"
-                }
-
-
-                div class="relative" {
-                    button type="button" class="dropdown-toggle text-lg flex items-center gap-2 rounded" {
-                        span { "About" }
-                        svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" {
-                            path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" {}
-                        }
-                    }
-                    div class="hidden dropdown-menu absolute bg-white rounded-b-lg pb-2 w-full flex flex-col z-10" {
-                        a hx-get="/about/bylaw" hx-trigger="click" hx-target="#page" class=" px-4 py-2" { "Bylaw" }
-                        a hx-get="/about/team" hx-trigger="click" hx-target="#page" class=" px-4 py-2" { "Our Team" }
-                        a hx-get="/about/faq" hx-trigger="click" hx-target="#page" class=" px-4 py-2" { "FAQ's" }
-                        a hx-get="/sponsors" hx-trigger="click" hx-target="#page" class=" px-4 py-2" { "Our Sponsors" }
-                        a hx-get="/about/contact" hx-trigger="click" hx-target="#page" class=" px-4 py-2" { "Contact Us" }
-                    }
-                }
-                a class="text-lg rounded"
-                                      hx-get="/events" hx-trigger="click" hx-target="#page" {
-                                        "Events"
-                                    }
-                                    a class="text-lg rounded"
-                                      hx-get="/gallery" hx-trigger="click" hx-target="#page" {
-                                        "Gallery"
-                                    }
-                div class="relative" {
-                    button type="button" class="dropdown-toggle text-lg flex items-center gap-2 rounded" {
-                        span { "Community" }
-                        svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" {
-                            path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" {}
-                        }
-                    }
-                    div class="hidden dropdown-menu absolute bg-white rounded-b-lg pb-2 w-full flex flex-col z-10" {
-                        a hx-get="/library" hx-trigger="click" hx-target="#page" class=" px-4 py-2" { "Tamil Library" }
-                                                a hx-get="/vattam" hx-trigger="click" hx-target="#page" class=" px-4 py-2" { "NJ Vasagar Vattam" }
-                                                a hx-get="/walking_club" hx-trigger="click" hx-target="#page" class=" px-4 py-2" { "Walking Club" }
-                                                a hx-get="/hiking_club" hx-trigger="click" hx-target="#page" class=" px-4 py-2" { "Hiking Club" }
-                                                a hx-get="/running_club" hx-trigger="click" hx-target="#page" class=" px-4 py-2" { "Running Club" }
-                                                a hx-get="/tamil_school" hx-trigger="click" hx-target="#page" class=" px-4 py-2" { "NJ Tamil Schools" }
-                    }
-                }
-            }
-
-
-           div class="flex-grow" {}
-
-            div class="flex space-x-4 mb-4" {
-                a href=(FACEBOOK_LINK) class="text-lg" { i class="fab fa-facebook" {} }
-                a href=(INSTAGRAM_LINK) class="text-lg" { i class="fab fa-instagram" {} }
-                a href=(WHATSAPP_LINK) class="text-lg" { i class="fab fa-whatsapp" {} }
-            }
-
-            div class="flex flex-col" {
-                a href=(format!("mailto:{EMAIL}")) class="flex items-center text-lg" {
-                    i class="fas fa-envelope mr-2" {}
-                    p { (EMAIL) }
-                }
-                a href=(PHONE_LINK) class="flex items-center text-lg" {
-                    i class="fas fa-phone-alt mr-2" {}
-                    p { (PHONE) }
-                }
-            }
-
-        }
-    }
-}
-
 pub fn navbar_markup() -> Markup {
     html! {
         div class="bg-orange-600 text-white py-2 px-4 flex justify-between items-center" {

@@ -100,7 +100,161 @@ async fn index() -> Markup {
     };
     page::page(content)
 }
+pub fn mobile_navbar() -> Markup {
+    html! {
+        div class="flex bg-pink-to-white md:hidden" {
+                    img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
+                    div class="flex flex-col"{
+                        div class="flex justify-center flex-grow"{
 
+
+                             a class="hover:text-blue-700 hover:underline px-4 py-2 rounded"
+                               hx-get="/home" hx-trigger="click" hx-target="#page" {
+                                 "Home"
+                             }
+                             a class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
+                               hx-get="/events" hx-trigger="click" hx-target="#page" {
+                                 "Events"
+                             }
+
+                              a class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
+                                hx-get="/gallery" hx-trigger="click" hx-target="#page" {
+                                  "Gallery"
+                              }
+
+
+
+                        }
+                        div class="flex justify-center flex-grow"{
+                             div class="relative"{
+                                 button type="button" class="dropdown-toggle py-2 px-3 hover:bg-gray-100 flex items-center gap-2 rounded"{
+                                     span class="select-none"{
+                                         "About"
+                                     }
+                                     svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"{
+                                       path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"{}
+                                     }
+                                 }
+                                 div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-10"{
+                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                       hx-get="/about/bylaw" hx-trigger="click" hx-target="#page" {
+                                         "Bylaw"
+                                     }
+                                     a class="hover:text-blue-700 px-4 py-2"
+                                       hx-get="/about/team" hx-trigger="click" hx-target="#page" {
+                                         "Our Team"
+                                     }
+                                     a class="hover:text-blue-700 px-4 py-2"
+                                       hx-get="/about/faq" hx-trigger="click" hx-target="#page" {
+                                         "FAQ's"
+                                     }
+                                     a class="hover:text-blue-700 px-4 py-2"
+                                       hx-get="/sponsors" hx-trigger="click" hx-target="#page" {
+                                         "Our Sponsors"
+                                     }
+
+
+
+                                     a class="hover:text-blue-700 px-4 py-2"
+                                       hx-get="/about/contact" hx-trigger="click" hx-target="#page" {
+                                         "Contact Us"
+                                     }
+
+                                 }
+                             }
+
+
+
+                             div class="relative"{
+
+                                 button type="button" class="dropdown-toggle py-2 px-3 hover:bg-gray-100 flex items-center gap-2 rounded"{
+                                     span class="select-none"{
+                                         "Community"
+                                     }
+                                     svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"{
+                                       path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"{}
+                                     }
+                                 }
+                                 div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-10"{
+                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                       hx-get="/library" hx-trigger="click" hx-target="#page" {
+                                         "Tamil Library"
+                                     }
+
+                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                       hx-get="/vattam" hx-trigger="click" hx-target="#page" {
+                                         "NJ Vasagar Vattam"
+                                     }
+
+
+                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                       hx-get="/walking_club" hx-trigger="click" hx-target="#page" {
+                                         "Walking Club"
+                                     }
+                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                       hx-get="/hiking_club" hx-trigger="click" hx-target="#page" {
+                                         "Hiking Club"
+                                     }
+                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                       hx-get="/running_club" hx-trigger="click" hx-target="#page" {
+                                         "Running Club"
+                                     }
+                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                       hx-get="/tamil_school" hx-trigger="click" hx-target="#page" {
+                                         "NJ Tamil Schools"
+                                     }
+
+                                 }
+
+                             }
+
+                             }
+
+
+
+
+
+                    }
+                    div class="flex-grow flex items-center justify-center"{
+                            a hx-get="/join" hx-trigger="click" hx-target="#page" class="text-white bg-orange-600 hover:bg-red-600 px-6 py-3 rounded-lg text-lg font-medium" {
+                                "Join Us"
+                            }
+                        }
+
+
+
+                }
+
+        div class="flex w-full bg-orange-600 md:hidden justify-between"{
+            div class="flex items-center space-x-4 justify-between bg-orange-600 text-white ml-2" {
+                a href=(FACEBOOK_LINK) class="" { i class="fab fa-facebook" {} }
+                a href=(INSTAGRAM_LINK) class="" { i class="fab fa-instagram" {} }
+                a href=(WHATSAPP_LINK) class="" { i class="fab fa-whatsapp" {} }
+            }
+            div class="flex items-center space-x-4 mr-2"{
+                // Email icon and text on the right side
+                div class="flex items-center space-x-4"{
+                                // Email icon and clickable email link
+                                a href=(format!("mailto:{EMAIL}")) class="text-white hover:text-gray-200 flex items-center" {
+                                    i class="fas fa-envelope mr-1" {}
+                                    p class="text-sm" { (EMAIL) }
+                                }
+                                // Phone icon and clickable phone link
+                                a href=(PHONE_LINK) class="text-white hover:text-gray-200 flex items-center" {
+                                    i class="fas fa-phone-alt mr-1" {}
+                                    p class="text-sm" { (PHONE)}
+                                }
+                            }
+            }
+
+
+
+
+        }
+
+
+    }
+}
 pub fn sponsors_markup() -> Markup {
     html! {
         div class="w-full flex flex-col items-center mt-8 bg-vertical-to-pink relative" {
@@ -168,156 +322,6 @@ async fn home() -> Markup {
     html! {
         div class="z-0 relative" {
             div class="w-full relative" {
-
-                div class="flex bg-pink-to-white md:hidden" {
-                            img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
-                            div class="flex flex-col"{
-                                div class="flex justify-center flex-grow"{
-
-
-                                     a class="hover:text-blue-700 hover:underline px-4 py-2 rounded"
-                                       hx-get="/home" hx-trigger="click" hx-target="#page" {
-                                         "Home"
-                                     }
-                                     a class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
-                                       hx-get="/events" hx-trigger="click" hx-target="#page" {
-                                         "Events"
-                                     }
-
-                                      a class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
-                                        hx-get="/gallery" hx-trigger="click" hx-target="#page" {
-                                          "Gallery"
-                                      }
-
-
-
-                                }
-                                div class="flex justify-center flex-grow"{
-                                     div class="relative"{
-                                         button type="button" class="dropdown-toggle py-2 px-3 hover:bg-gray-100 flex items-center gap-2 rounded"{
-                                             span class="select-none"{
-                                                 "About"
-                                             }
-                                             svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"{
-                                               path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"{}
-                                             }
-                                         }
-                                         div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-10"{
-                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
-                                               hx-get="/about/bylaw" hx-trigger="click" hx-target="#page" {
-                                                 "Bylaw"
-                                             }
-                                             a class="hover:text-blue-700 px-4 py-2"
-                                               hx-get="/about/team" hx-trigger="click" hx-target="#page" {
-                                                 "Our Team"
-                                             }
-                                             a class="hover:text-blue-700 px-4 py-2"
-                                               hx-get="/about/faq" hx-trigger="click" hx-target="#page" {
-                                                 "FAQ's"
-                                             }
-                                             a class="hover:text-blue-700 px-4 py-2"
-                                               hx-get="/sponsors" hx-trigger="click" hx-target="#page" {
-                                                 "Our Sponsors"
-                                             }
-
-
-
-                                             a class="hover:text-blue-700 px-4 py-2"
-                                               hx-get="/about/contact" hx-trigger="click" hx-target="#page" {
-                                                 "Contact Us"
-                                             }
-
-                                         }
-                                     }
-
-
-
-                                     div class="relative"{
-
-                                         button type="button" class="dropdown-toggle py-2 px-3 hover:bg-gray-100 flex items-center gap-2 rounded"{
-                                             span class="select-none"{
-                                                 "Community"
-                                             }
-                                             svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"{
-                                               path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"{}
-                                             }
-                                         }
-                                         div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-10"{
-                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
-                                               hx-get="/library" hx-trigger="click" hx-target="#page" {
-                                                 "Tamil Library"
-                                             }
-
-                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
-                                               hx-get="/vattam" hx-trigger="click" hx-target="#page" {
-                                                 "NJ Vasagar Vattam"
-                                             }
-
-
-                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
-                                               hx-get="/walking_club" hx-trigger="click" hx-target="#page" {
-                                                 "Walking Club"
-                                             }
-                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
-                                               hx-get="/hiking_club" hx-trigger="click" hx-target="#page" {
-                                                 "Hiking Club"
-                                             }
-                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
-                                               hx-get="/running_club" hx-trigger="click" hx-target="#page" {
-                                                 "Running Club"
-                                             }
-                                             a class="hover:text-blue-700 hover:underline px-4 py-2"
-                                               hx-get="/tamil_school" hx-trigger="click" hx-target="#page" {
-                                                 "NJ Tamil Schools"
-                                             }
-
-                                         }
-
-                                     }
-
-                                     }
-
-
-
-
-
-                            }
-                            div class="flex-grow flex items-center justify-center"{
-                                    a hx-get="/join" hx-trigger="click" hx-target="#page" class="text-white bg-orange-600 hover:bg-red-600 px-6 py-3 rounded-lg text-lg font-medium" {
-                                        "Join Us"
-                                    }
-                                }
-
-
-
-                        }
-
-                div class="flex w-full bg-orange-600 md:hidden justify-between"{
-                    div class="flex items-center space-x-4 justify-between bg-orange-600 text-white ml-2" {
-                        a href=(FACEBOOK_LINK) class="" { i class="fab fa-facebook" {} }
-                        a href=(INSTAGRAM_LINK) class="" { i class="fab fa-instagram" {} }
-                        a href=(WHATSAPP_LINK) class="" { i class="fab fa-whatsapp" {} }
-                    }
-                    div class="flex items-center space-x-4 mr-2"{
-                        // Email icon and text on the right side
-                        div class="flex items-center space-x-4"{
-                                        // Email icon and clickable email link
-                                        a href=(format!("mailto:{EMAIL}")) class="text-white hover:text-gray-200 flex items-center" {
-                                            i class="fas fa-envelope mr-1" {}
-                                            p class="text-sm" { (EMAIL) }
-                                        }
-                                        // Phone icon and clickable phone link
-                                        a href=(PHONE_LINK) class="text-white hover:text-gray-200 flex items-center" {
-                                            i class="fas fa-phone-alt mr-1" {}
-                                            p class="text-sm" { (PHONE)}
-                                        }
-                                    }
-                    }
-
-
-
-
-                }
 
                 img src="assets/img/home_bg.jpeg" class="w-full h-auto" alt="Background Image" {}
                 div class="bg-slate-200 text-center h-20 flex items-center justify-center" id="notificationBanner" {
