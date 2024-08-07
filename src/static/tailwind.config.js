@@ -11,6 +11,7 @@ module.exports = {
       backgroundImage: {
         "vertical-to-pink":
           "linear-gradient(to bottom, white, rgb(248,201,212))",
+        "pink-to-white": "linear-gradient(to bottom, rgb(248,201,212), white)",
       },
     },
   },

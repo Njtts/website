@@ -6,7 +6,7 @@ use axum::{
     Form, Router,
 };
 use dotenv::dotenv;
-use links::{FACEBOOK_LINK, INSTAGRAM_LINK, WHATSAPP_LINK};
+use links::{EMAIL, FACEBOOK_LINK, INSTAGRAM_LINK, PHONE, PHONE_LINK, WHATSAPP_LINK};
 use maud::{html, Markup, PreEscaped, DOCTYPE};
 use mongodb::{bson::Document, options::ClientOptions, Client};
 use tokio::net::TcpListener;
@@ -100,6 +100,7 @@ async fn index() -> Markup {
     };
     page::page(content)
 }
+
 pub fn sponsors_markup() -> Markup {
     html! {
         div class="w-full flex flex-col items-center mt-8 bg-vertical-to-pink relative" {
@@ -119,23 +120,13 @@ pub fn sponsors_markup() -> Markup {
                         }
                     }
                 }
-                // Navigation Controls
-                button onclick="prevSlide()" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full focus:outline-none" {
-                    svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" {
-                        path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" {}
-                    }
-                }
-                button onclick="nextSlide()" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full focus:outline-none" {
-                    svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" {
-                        path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" {}
-                    }
-                }
             }
 
             // Carousel Script
             script {
                 (PreEscaped(r#"
                     let index = 0;
+                    const interval = 3000; // 3 seconds
 
                     function showSlide(i) {
                         const slides = document.querySelectorAll('.carousel-item');
@@ -149,13 +140,15 @@ pub fn sponsors_markup() -> Markup {
                         document.getElementById('carousel-items').style.transform = `translateX(${offset}%)`;
                     }
 
-                    function prevSlide() {
-                        showSlide(index - 1);
-                    }
-
                     function nextSlide() {
                         showSlide(index + 1);
                     }
+
+                    // Automatically advance slides every interval
+                    setInterval(nextSlide, interval);
+
+                    // Initial slide display
+                    showSlide(index);
                 "#))
             }
         }
@@ -176,7 +169,7 @@ async fn home() -> Markup {
         div class="z-0 relative" {
             div class="w-full relative" {
 
-                div class="flex bg-vertical-to-pink" {
+                div class="flex bg-pink-to-white md:hidden" {
                             img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
                             div class="flex flex-col"{
                                 div class="flex justify-center flex-grow"{
@@ -289,16 +282,38 @@ async fn home() -> Markup {
 
 
                             }
+                            div class="flex-grow flex items-center justify-center"{
+                                    a hx-get="/join" hx-trigger="click" hx-target="#page" class="text-white bg-orange-600 hover:bg-red-600 px-6 py-3 rounded-lg text-lg font-medium" {
+                                        "Join Us"
+                                    }
+                                }
+
 
 
                         }
 
-                div class="flex w-full bg-orange-500"{
-                    div class="flex items-center space-x-4 justify-between bg-orange-500" {
+                div class="flex w-full bg-orange-600 md:hidden justify-between"{
+                    div class="flex items-center space-x-4 justify-between bg-orange-600 text-white ml-2" {
                         a href=(FACEBOOK_LINK) class="" { i class="fab fa-facebook" {} }
                         a href=(INSTAGRAM_LINK) class="" { i class="fab fa-instagram" {} }
                         a href=(WHATSAPP_LINK) class="" { i class="fab fa-whatsapp" {} }
                     }
+                    div class="flex items-center space-x-4 mr-2"{
+                        // Email icon and text on the right side
+                        div class="flex items-center space-x-4"{
+                                        // Email icon and clickable email link
+                                        a href=(format!("mailto:{EMAIL}")) class="text-white hover:text-gray-200 flex items-center" {
+                                            i class="fas fa-envelope mr-1" {}
+                                            p class="text-sm" { (EMAIL) }
+                                        }
+                                        // Phone icon and clickable phone link
+                                        a href=(PHONE_LINK) class="text-white hover:text-gray-200 flex items-center" {
+                                            i class="fas fa-phone-alt mr-1" {}
+                                            p class="text-sm" { (PHONE)}
+                                        }
+                                    }
+                    }
+
 
 
 
