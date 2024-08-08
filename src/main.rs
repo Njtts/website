@@ -100,11 +100,12 @@ async fn index() -> Markup {
     };
     page::page(content)
 }
+
 pub fn mobile_navbar() -> Markup {
     html! {
         div class="flex bg-pink-to-white md:hidden" {
                     img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
-                    div class="flex flex-col"{
+                    div class="flex flex-col py-2 text-sm"{
                         div class="flex justify-center flex-grow"{
 
 
@@ -135,7 +136,7 @@ pub fn mobile_navbar() -> Markup {
                                        path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"{}
                                      }
                                  }
-                                 div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-10"{
+                                 div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-30"{
                                      a class="hover:text-blue-700 hover:underline px-4 py-2"
                                        hx-get="/about/bylaw" hx-trigger="click" hx-target="#page" {
                                          "Bylaw"
@@ -175,7 +176,7 @@ pub fn mobile_navbar() -> Markup {
                                        path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"{}
                                      }
                                  }
-                                 div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-10"{
+                                 div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-30"{
                                      a class="hover:text-blue-700 hover:underline px-4 py-2"
                                        hx-get="/library" hx-trigger="click" hx-target="#page" {
                                          "Tamil Library"
@@ -216,43 +217,32 @@ pub fn mobile_navbar() -> Markup {
 
                     }
                     div class="flex-grow flex items-center justify-center"{
-                            a hx-get="/join" hx-trigger="click" hx-target="#page" class="text-white bg-orange-600 hover:bg-red-600 px-6 py-3 rounded-lg text-lg font-medium" {
+                            a hx-get="/join" hx-trigger="click" hx-target="#page" class="text-white bg-orange-600 hover:bg-red-600 px-3 py-1 rounded-md text-sm font-small" {
                                 "Join Us"
                             }
                         }
+                }
 
+            div class="flex w-full items-center justify-between bg-orange-600 md:hidden text-white" {
+                div class="ml-3 flex space-x-4"{
+                    a href=(FACEBOOK_LINK) class="" { i class="fab fa-facebook" {} }
+                    a href=(INSTAGRAM_LINK) class="" { i class="fab fa-instagram" {} }
+                    a href=(WHATSAPP_LINK) class="" { i class="fab fa-whatsapp" {} }
 
 
                 }
+                    // Email icon and clickable email link
+                    a href=(format!("mailto:{EMAIL}")) class="text-white hover:text-gray-200 flex items-center" {
+                        i class="fas fa-envelope mr-1" {}
+                        p class="text-sm" { (EMAIL) }
+                    }
+                    // Phone icon and clickable phone link
+                    a href=(PHONE_LINK) class="text-white hover:text-gray-200 flex items-center mr-2" {
+                        i class="fas fa-phone-alt mr-1" {}
+                        p class="text-sm" { (PHONE)}
+                    }
 
-        div class="flex w-full bg-orange-600 md:hidden justify-between"{
-            div class="flex items-center space-x-4 justify-between bg-orange-600 text-white ml-2" {
-                a href=(FACEBOOK_LINK) class="" { i class="fab fa-facebook" {} }
-                a href=(INSTAGRAM_LINK) class="" { i class="fab fa-instagram" {} }
-                a href=(WHATSAPP_LINK) class="" { i class="fab fa-whatsapp" {} }
             }
-            div class="flex items-center space-x-4 mr-2"{
-                // Email icon and text on the right side
-                div class="flex items-center space-x-4"{
-                                // Email icon and clickable email link
-                                a href=(format!("mailto:{EMAIL}")) class="text-white hover:text-gray-200 flex items-center" {
-                                    i class="fas fa-envelope mr-1" {}
-                                    p class="text-sm" { (EMAIL) }
-                                }
-                                // Phone icon and clickable phone link
-                                a href=(PHONE_LINK) class="text-white hover:text-gray-200 flex items-center" {
-                                    i class="fas fa-phone-alt mr-1" {}
-                                    p class="text-sm" { (PHONE)}
-                                }
-                            }
-            }
-
-
-
-
-        }
-
-
     }
 }
 pub fn sponsors_markup() -> Markup {
@@ -324,6 +314,14 @@ async fn home() -> Markup {
             div class="w-full relative" {
 
                 img src="assets/img/home_bg.jpeg" class="w-full h-auto" alt="Background Image" {}
+                div class="absolute inset-0 flex flex-col items-center justify-center text-center text-blue-500"{
+                                p class="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold blink font-[Great Vibes] mt-20 md:mt-40 lg:mt-60" {
+                                    "🎉 Diwali Event Celebration 🎉"
+                                }
+                                p class="text-md font-semdbold text-blue-300 mt-2" {
+                                    "9th Nov 2024"
+                                }
+                            }
                 div class="bg-slate-200 text-center h-20 flex items-center justify-center" id="notificationBanner" {
                             div class="font-bold transition-opacity duration-500 opacity-100 text-3xl" {
                             }
@@ -395,7 +393,7 @@ async fn navbar() -> Markup {
                               path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"{}
                             }
                         }
-                        div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-10"{
+                        div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-30"{
                             a class="hover:text-blue-700 hover:underline px-4 py-2"
                               hx-get="/about/bylaw" hx-trigger="click" hx-target="#page" {
                                 "Bylaw"
@@ -442,7 +440,7 @@ async fn navbar() -> Markup {
                               path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"{}
                             }
                         }
-                        div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-10"{
+                        div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-30"{
                             a class="hover:text-blue-700 hover:underline px-4 py-2"
                               hx-get="/library" hx-trigger="click" hx-target="#page" {
                                 "Tamil Library"
