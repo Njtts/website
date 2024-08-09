@@ -314,21 +314,33 @@ async fn home() -> Markup {
             div class="w-full relative" {
 
                 img src="assets/img/home_bg.jpeg" class="w-full h-auto" alt="Background Image" {}
-                div class="absolute inset-0 flex flex-col items-center justify-center text-center text-blue-500"{
-                                p class="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold blink font-[Great Vibes] mt-20 md:mt-40 lg:mt-60" {
-                                    "🎉 Diwali Event Celebration 🎉"
+                        div class=
+                            "absolute bottom-5 left-1/2
+                                transform
+                                -translate-x-1/2
+                                -translate-y-1/4
+                                sm:-translate-y-1/3
+                                md:-translate-y-2/3
+                                flex flex-col items-center justify-center text-center text-blue-500 font-taviraj "
+
+                            {
+
+                                p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold blink" {
+                                    "🎉 Diwali Event 🎉"
                                 }
-                                p class="text-md font-semdbold text-blue-300 mt-2" {
+                                p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold blink" {
                                     "9th Nov 2024"
                                 }
-                            }
-                div class="bg-slate-200 text-center h-20 flex items-center justify-center" id="notificationBanner" {
-                            div class="font-bold transition-opacity duration-500 opacity-100 text-3xl" {
-                            }
+
                         }
 
 
             }
+            div class="bg-slate-200 text-center h-20 flex items-center justify-center" id="notificationBanner" {
+                        div class="font-bold transition-opacity duration-500 opacity-100 text-3xl" {
+                        }
+                    }
+
             (sponsors_markup())
         }
         (PreEscaped(r##"
@@ -372,15 +384,18 @@ async fn navbar() -> Markup {
         nav id="navb" class=" p-4"{
 
             div class="container mx-auto flex items-center justify-between gap-6"{
-                div class = "flex items-center gap-4"{
+                div class = "flex items-center gap-4"
+                    hx-get="/home" hx-trigger="click" hx-target="#page" {
+                        img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
 
-                    img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
+
+
 
                 }
                div class="flex justify-center flex-grow"{
 
 
-                    a class="hover:text-blue-700 hover:underline px-4 py-2 rounded"
+                    div class="hover:text-blue-700 hover:underline px-4 py-2 rounded"
                       hx-get="/home" hx-trigger="click" hx-target="#page" {
                         "Home"
                     }
@@ -394,26 +409,26 @@ async fn navbar() -> Markup {
                             }
                         }
                         div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-30"{
-                            a class="hover:text-blue-700 hover:underline px-4 py-2"
+                            div class="hover:text-blue-700 hover:underline px-4 py-2"
                               hx-get="/about/bylaw" hx-trigger="click" hx-target="#page" {
                                 "Bylaw"
                             }
-                            a class="hover:text-blue-700 px-4 py-2"
+                            div class="hover:text-blue-700 px-4 py-2"
                               hx-get="/about/team" hx-trigger="click" hx-target="#page" {
                                 "Our Team"
                             }
-                            a class="hover:text-blue-700 px-4 py-2"
+                            div class="hover:text-blue-700 px-4 py-2"
                               hx-get="/about/faq" hx-trigger="click" hx-target="#page" {
                                 "FAQ's"
                             }
-                            a class="hover:text-blue-700 px-4 py-2"
+                            div class="hover:text-blue-700 px-4 py-2"
                               hx-get="/sponsors" hx-trigger="click" hx-target="#page" {
                                 "Our Sponsors"
                             }
 
 
 
-                            a class="hover:text-blue-700 px-4 py-2"
+                            div class="hover:text-blue-700 px-4 py-2"
                               hx-get="/about/contact" hx-trigger="click" hx-target="#page" {
                                 "Contact Us"
                             }
@@ -422,11 +437,11 @@ async fn navbar() -> Markup {
                     }
 
 
-                    a class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
+                    div class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
                       hx-get="/events" hx-trigger="click" hx-target="#page" {
                         "Events"
                     }
-                    a class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
+                    div class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
                       hx-get="/gallery" hx-trigger="click" hx-target="#page" {
                         "Gallery"
                     }
@@ -441,30 +456,30 @@ async fn navbar() -> Markup {
                             }
                         }
                         div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-30"{
-                            a class="hover:text-blue-700 hover:underline px-4 py-2"
+                            div class="hover:text-blue-700 hover:underline px-4 py-2"
                               hx-get="/library" hx-trigger="click" hx-target="#page" {
                                 "Tamil Library"
                             }
 
-                            a class="hover:text-blue-700 hover:underline px-4 py-2"
+                            div class="hover:text-blue-700 hover:underline px-4 py-2"
                               hx-get="/vattam" hx-trigger="click" hx-target="#page" {
                                 "NJ Vasagar Vattam"
                             }
 
 
-                            a class="hover:text-blue-700 hover:underline px-4 py-2"
+                            div class="hover:text-blue-700 hover:underline px-4 py-2"
                               hx-get="/walking_club" hx-trigger="click" hx-target="#page" {
                                 "Walking Club"
                             }
-                            a class="hover:text-blue-700 hover:underline px-4 py-2"
+                            div class="hover:text-blue-700 hover:underline px-4 py-2"
                               hx-get="/hiking_club" hx-trigger="click" hx-target="#page" {
                                 "Hiking Club"
                             }
-                            a class="hover:text-blue-700 hover:underline px-4 py-2"
+                            div class="hover:text-blue-700 hover:underline px-4 py-2"
                               hx-get="/running_club" hx-trigger="click" hx-target="#page" {
                                 "Running Club"
                             }
-                            a class="hover:text-blue-700 hover:underline px-4 py-2"
+                            div class="hover:text-blue-700 hover:underline px-4 py-2"
                               hx-get="/tamil_school" hx-trigger="click" hx-target="#page" {
                                 "NJ Tamil Schools"
                             }
@@ -472,7 +487,7 @@ async fn navbar() -> Markup {
                     }
                     }
                     div {
-                            a hx-get="/join" hx-trigger="click" hx-target="#page" class="text-white bg-orange-600 hover:bg-red-600 px-6 py-3 rounded-lg text-lg font-medium" {
+                            div hx-get="/join" hx-trigger="click" hx-target="#page" class="text-white bg-orange-600 hover:bg-red-600 px-6 py-3 rounded-lg text-lg font-medium" {
                                 "Join Us"
                             }
                         }

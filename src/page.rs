@@ -11,6 +11,7 @@ fn body(content: Markup) -> Markup {
             script src="assets/js/plugins.js" {}
             script src="assets/js/main.js" {}
             link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet";
+            link href="https://fonts.googleapis.com/css2?family=Taviraj:wght@400;700&display=swap" rel="stylesheet";
 
             div class="min-h-screen flex flex-col" {
                 div class="hidden md:flex flex-col" {
