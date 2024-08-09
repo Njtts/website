@@ -303,7 +303,7 @@ async fn sponsors_page() -> Markup {
     html! {
         div class="w-full flex flex-col items-center mt-8 bg-vertical-to-pink" {
             h2 class="text-3xl font-bold text-center text-gray-800 mb-8" { "2024 Annual Sponsors" }
-            img src="assets/img/sponsor-collage.jpg" class="h-auto" alt="Sponsor Collage" {}
+            // img src="assets/img/sponsor-collage.jpg" class="h-auto" alt="Sponsor Collage" {}
         }
 
     }
