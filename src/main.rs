@@ -484,48 +484,53 @@ async fn navbar() -> Markup {
             }
         }
         script {
-                (PreEscaped(r#"
-                      // Select all dropdown toggle buttons
-                      const dropdownToggles = document.querySelectorAll(".dropdown-toggle")
+            (PreEscaped(r#"
+                // Select all dropdown toggle buttons
+                const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
 
-                      dropdownToggles.forEach((toggle) => {
-                        toggle.addEventListener("click", () => {
-                        console.log("clicked toggle");
-                          // Find the next sibling element which is the dropdown menu
-                          const dropdownMenu = toggle.nextElementSibling
+                dropdownToggles.forEach((toggle) => {
+                    toggle.addEventListener("click", () => {
+                        // Find the next sibling element which is the dropdown menu
+                        const dropdownMenu = toggle.nextElementSibling;
 
-                          // Toggle the 'hidden' class to show or hide the dropdown menu
-                          if (dropdownMenu.classList.contains("hidden")) {
+                        // Toggle the 'hidden' class to show or hide the dropdown menu
+                        if (dropdownMenu.classList.contains("hidden")) {
                             // Hide any open dropdown menus before showing the new one
                             document.querySelectorAll(".dropdown-menu").forEach((menu) => {
-                              menu.classList.add("hidden")
-                            })
+                                menu.classList.add("hidden");
+                            });
 
-                            dropdownMenu.classList.remove("hidden")
-                          } else {
-                            dropdownMenu.classList.add("hidden")
-                          }
-                        })
-                      })
-                      // Clicking outside of an open dropdown menu closes it
+                            dropdownMenu.classList.remove("hidden");
+                        } else {
+                            dropdownMenu.classList.add("hidden");
+                        }
+                    });
 
-                      window.addEventListener("click", function (e) {
-                        // Check if the clicked element or any of its ancestors contain the class 'dropdown-toggle'
-                        if (!e.target.closest(".dropdown-toggle")) {
-                          // Iterate through each dropdown menu
-                          document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+                    // Close the dropdown when a link inside it is clicked
+                    const links = toggle.nextElementSibling.querySelectorAll("a");
+                    links.forEach(link => {
+                        link.addEventListener("click", () => {
+                            toggle.nextElementSibling.classList.add("hidden");
+                        });
+                    });
+                });
+
+                // Clicking outside of an open dropdown menu closes it
+                window.addEventListener("click", function (e) {
+                    // Check if the clicked element or any of its ancestors contain the class 'dropdown-toggle'
+                    if (!e.target.closest(".dropdown-toggle")) {
+                        // Iterate through each dropdown menu
+                        document.querySelectorAll(".dropdown-menu").forEach((menu) => {
                             // Check if the clicked element is not within the dropdown menu
                             if (!menu.contains(e.target)) {
-                              // Hide the dropdown menu
-                              menu.classList.add("hidden");
+                                // Hide the dropdown menu
+                                menu.classList.add("hidden");
                             }
-                          });
-                        }
-                      });
-
-
-                "#))
-            }
+                        });
+                    }
+                });
+            "#))
+        }
     }
 }
 async fn not_found() -> Markup {
