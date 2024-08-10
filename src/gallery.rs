@@ -54,6 +54,38 @@ pub async fn gallery_page() -> Markup {
                                 }
                             }
 
+                            div class="space-y-4" {
+                                h3 class="text-xl font-semibold text-gray-800" {"Summer Camping"}
+
+                                div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 border rounded-lg shadow-lg bg-white" {
+
+                                    // Image 2
+                                    a href="assets/img/camping/image2.jpg" target="_blank" rel="noopener noreferrer" class="group relative" {
+                                        img src="assets/img/camping/image2.jpg" alt="Photo 2" class="rounded-lg object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105";
+                                    }
+
+                                    // Image 3
+                                    a href="assets/img/camping/image3.jpg" target="_blank" rel="noopener noreferrer" class="group relative" {
+                                        img src="assets/img/camping/image3.jpg" alt="Photo 3" class="rounded-lg object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105";
+                                    }
+
+                                    // Image 4 (optional)
+                                    a href="assets/img/camping/image4.jpg" target="_blank" rel="noopener noreferrer" class="group relative" {
+                                        img src="assets/img/camping/image4.jpg" alt="Photo 4" class="rounded-lg object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105";
+                                    }
+                                    a href="assets/img/camping/image5.jpg" target="_blank" rel="noopener noreferrer" class="group relative" {
+                                        img src="assets/img/camping/image5.jpg" alt="Photo 5" class="rounded-lg object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105";
+                                    }
+                                    a href="assets/img/camping/image6.jpg" target="_blank" rel="noopener noreferrer" class="group relative" {
+                                        img src="assets/img/camping/image6.jpg" alt="Photo 6" class="rounded-lg object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105";
+                                    }
+
+
+                                }
+                            }
+
+
+
 
                             // // Event 2
                             // div class="space-y-4" {
