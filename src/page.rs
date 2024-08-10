@@ -94,8 +94,8 @@ pub fn footer_markup() -> Markup {
                     div class="mb-6 md:mb-0 md:w-1/3 text-center md:text-left" {
                         h2 class="text-2xl font-bold mb-2" { "Quick Links" }
                         div class="text-gray-400 flex flex-col space-y-2 mt-4" {
-                            a hx-get="/about" hx-trigger="click" hx-target="#page" class="hover:text-white" { "About Us" }
-                            a hx-get="/contact" hx-trigger="click" hx-target="#page" class="hover:text-white" { "Contact Us" }
+                            a hx-get="/about/about" hx-trigger="click" hx-target="#page" class="hover:text-white" { "About Us" }
+                            a hx-get="/about/contact" hx-trigger="click" hx-target="#page" class="hover:text-white" { "Contact Us" }
                             a hx-get="/faq" hx-trigger="click" hx-target="#page" class="hover:text-white" { "FAQ's" }
                         }
                     }
@@ -105,8 +105,11 @@ pub fn footer_markup() -> Markup {
                         h2 class="text-2xl font-bold mb-2" { "Get Involved" }
                         div class="text-gray-400 flex flex-col space-y-2 mt-4" {
                             a hx-get="/sponsors" hx-trigger="click" hx-target="#page" class="hover:text-white" { "Sponsors" }
-                            a hx-get="/membership" hx-trigger="click" hx-target="#page" class="hover:text-white" { "Membership" }
-                            a hx-get="/donate" hx-trigger="click" hx-target="#page" class="hover:text-white" { "Donate" }
+                            a hx-get="/join" hx-trigger="click" hx-target="#page" class="hover:text-white" { "Join Us" }
+
+
+                            // a hx-get="/membership" hx-trigger="click" hx-target="#page" class="hover:text-white" { "Membership" }
+                            // a hx-get="/donate" hx-trigger="click" hx-target="#page" class="hover:text-white" { "Donate" }
                         }
                     }
                 }

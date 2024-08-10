@@ -16,11 +16,55 @@ use crate::{
 
 pub fn about_router() -> Router<ClientState> {
     return Router::new()
+        .route("/about", get(about_page))
         .route("/bylaw", get(bylaw_page))
         .route("/team", get(team_page))
         .route("/contact", get(contact_page))
         .route("/contact_response", post(contact_response));
 }
+pub async fn about_page() -> Markup {
+    html! {
+        div class="bg-vertical-to-pink"{
+
+        div class="bg-white bg-opacity-90 px-4 mx-auto max-w-screen-md relative z-5" {
+            h2 class="mb-8 text-center text-4xl tracking-tight font-extrabold text-gray-900" {
+                "About Us"
+            }
+
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "Rooted in the rich heritage and traditions of the Tamil people, our nonprofit stands as a testament to the power of collective action and the transformative potential of community-driven initiatives. With a deep commitment to serving our members and uplifting the broader community, we strive to create a space where every individual can thrive, regardless of background or circumstance."
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "At the heart of our mission lies a dedication to preserving and promoting Tamil culture, language, and identity. Through a diverse array of programs, events, and initiatives, we seek to celebrate our heritage, instill pride in our traditions, and pass down our cultural legacy to future generations."
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "But our work extends far beyond cultural preservation – it's about empowerment, advocacy, and creating opportunities for growth and advancement. From educational initiatives and skill-building workshops to social welfare projects and community outreach efforts, we are committed to addressing the needs of our community and empowering individuals to realize their full potential."
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "Together, we are more than just a nonprofit – we are a family, united by a shared vision of a brighter future for all. Whether you're a newcomer seeking connection, a seasoned member eager to make a difference, or simply someone who believes in the power of community, there's a place for you here."
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "Join us as we embark on a journey of service, solidarity, and celebration – together, let's build a stronger, more vibrant Tamil community for generations to come."
+            }
+
+            h3 class="mb-4 text-center text-2xl tracking-tight font-extrabold text-gray-900" {
+                "Mission"
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "To foster unity, cultural preservation, and empowerment within the Tamil community in the United States, enriching the lives of individuals and families through education, support, and celebration of our heritage."
+            }
+
+            h3 class="mb-2 text-center text-2xl tracking-tight font-extrabold text-gray-900" {
+                "Vision"
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "Our vision is to create a thriving and inclusive Tamil community in the US where every member feels a sense of belonging and pride in their cultural identity. We aspire to be a strong network of individuals and organizations dedicated to preserving Tamil language, traditions, and values while actively contributing to the broader American society. Through collaboration, education, and service, we seek to empower our community members to achieve their full potential and make meaningful contributions to the world around them."
+            }
+        }
+    }
+    }
+}
+
 pub async fn bylaw_page() -> Markup {
     html! {
         div class="container mx-auto px-4 py-8 text-center" {

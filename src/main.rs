@@ -72,11 +72,36 @@ async fn main() {
     axum::serve(listener, app).await.unwrap();
 }
 
-async fn vattam_page() -> Markup {
+pub async fn vattam_page() -> Markup {
     html! {
-        div class="min-h-screen flex items-center justify-center flex-col space-y-10 bg-vertical-to-pink"{
-            div class=""{
-                h1 class="text-center text-red-800 text-5xl md:text-7xl lg:text-9xl font-bold "{"Vattam"}
+        section class="bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url('assets/img/vasagar_vattam_bg.jpeg');" {
+            div class="bg-white bg-opacity-90 py-8 lg:py-16 px-4 mx-auto max-w-screen-md relative z-5" {
+                h2 class="mb-4 text-center text-4xl tracking-tight font-extrabold text-gray-900" { "Welcome to NJ Vasagar Vattam" }
+
+                p class="mb-8 lg:mb-16 font-light text-center sm:text-xl" {
+                    "Since January 21, 2024, our members have gathered every Wednesday to explore Tamil short stories through virtual discussions. But is reading storybooks necessary? As GK Chesterton aptly put it in 1901, \"Literature is a luxury; Fiction is a necessity.\""
+                }
+
+                div class="text-center mb-8" {
+                    img src="assets/img/books.jpeg" alt="QR Code" class="mx-auto mb-4" {}
+                }
+
+                p class="mb-8 lg:mb-16 font-light text-center sm:text-xl" {
+                    "Fiction is more than just entertainment; it's a gateway to new worlds, emotions, and experiences. Through stories, we can dream, play, and live vicariously, exploring human emotion in a unique and impactful way. From childhood tales to adult escapades, fiction has been an indispensable part of human societies, providing solace, inspiration, and a brief escape from reality."
+                }
+
+                p class="mb-8 lg:mb-16 font-light text-center sm:text-xl" {
+                    "We've delved into over 30 captivating stories, each offering a fresh perspective and insight into the human experience."
+                }
+
+                div class="text-center mb-8" {
+                    img src="assets/img/vattam_w.jpeg" alt="QR Code" class="mx-auto mb-4" {}
+                    a href="https://chat.whatsapp.com/FjyUCpSVjIQDv04xSnBAZc" target="_blank" rel="noopener noreferrer" class="text-green-500 hover:underline" { "Join Our Whatsapp Group!" }
+                }
+
+                p class="mb-8 lg:mb-16 font-light text-center sm:text-xl" {
+                    "If you wish to be part of our literary discussion, join us using the QR code above."
+                }
             }
         }
     }
