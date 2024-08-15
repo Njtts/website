@@ -1,5 +1,5 @@
 use crate::{
-    links::{EMAIL, FACEBOOK_LINK, INSTAGRAM_LINK, PHONE, PHONE_LINK, WHATSAPP_LINK},
+    links::{EMAIL, FACEBOOK_LINK, INSTAGRAM_LINK, PHONE, PHONE_LINK, WHATSAPP_LINK, YOUTUBE_LINK},
     mobile_navbar, navbar, strings,
 };
 use maud::{html, Markup, DOCTYPE};
@@ -36,6 +36,8 @@ pub fn navbar_markup() -> Markup {
                 a href=(FACEBOOK_LINK) class="text-white hover:text-gray-200" { i class="fab fa-facebook" {} }
                 a href=(INSTAGRAM_LINK) class="text-white hover:text-gray-200" { i class="fab fa-instagram" {} }
                 a href=(WHATSAPP_LINK) class="text-white hover:text-gray-200" { i class="fab fa-whatsapp" {} }
+                a href=(YOUTUBE_LINK) class="text-white hover:text-gray-200" { i class="fab fa-youtube" {} }
+
             }
             div class="flex items-center space-x-4"{
                 // Email icon and text on the right side
@@ -86,6 +88,10 @@ pub fn footer_markup() -> Markup {
                                 a href=(WHATSAPP_LINK) class="hover:text-white flex items-center justify-center w-12 h-12 bg-gray-700 rounded-full" {
                                     i class="fab fa-whatsapp text-2xl" {}
                                 }
+                                a href=(YOUTUBE_LINK) class="hover:text-white flex items-center justify-center w-12 h-12 bg-gray-700 rounded-full" {
+                                    i class="fab fa-youtube text-2xl" {}
+                                }
+
                             }
                         }
                     }
