@@ -6,7 +6,7 @@ use axum::{
     Form, Router,
 };
 use dotenv::dotenv;
-use links::{EMAIL, FACEBOOK_LINK, INSTAGRAM_LINK, PHONE, PHONE_LINK, WHATSAPP_LINK};
+use links::{EMAIL, FACEBOOK_LINK, INSTAGRAM_LINK, PHONE, PHONE_LINK, WHATSAPP_LINK, YOUTUBE_LINK};
 use maud::{html, Markup, PreEscaped, DOCTYPE};
 use mongodb::{bson::Document, options::ClientOptions, Client};
 use tokio::net::TcpListener;
@@ -134,16 +134,16 @@ pub fn mobile_navbar() -> Markup {
                         div class="flex justify-center flex-grow"{
 
 
-                             a class="hover:text-blue-700 hover:underline px-4 py-2 rounded"
+                             div class="hover:text-blue-700 hover:underline px-4 py-2 rounded"
                                hx-get="/home" hx-trigger="click" hx-target="#page" {
                                  "Home"
                              }
-                             a class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
+                             div class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
                                hx-get="/events" hx-trigger="click" hx-target="#page" {
                                  "Events"
                              }
 
-                              a class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
+                              div class=" hover:text-blue-700 hover:underline px-4 py-2 rounded"
                                 hx-get="/gallery" hx-trigger="click" hx-target="#page" {
                                   "Gallery"
                               }
@@ -162,26 +162,31 @@ pub fn mobile_navbar() -> Markup {
                                      }
                                  }
                                  div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-30"{
-                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                     div class="hover:text-blue-700 hover:underline px-4 py-2"
+                                       hx-get="/about/about" hx-trigger="click" hx-target="#page" {
+                                         "About Us"
+                                     }
+
+                                     div class="hover:text-blue-700 hover:underline px-4 py-2"
                                        hx-get="/about/bylaw" hx-trigger="click" hx-target="#page" {
                                          "Bylaw"
                                      }
-                                     a class="hover:text-blue-700 px-4 py-2"
+                                     div class="hover:text-blue-700 px-4 py-2"
                                        hx-get="/about/team" hx-trigger="click" hx-target="#page" {
                                          "Our Team"
                                      }
-                                     a class="hover:text-blue-700 px-4 py-2"
+                                     div class="hover:text-blue-700 px-4 py-2"
                                        hx-get="/about/faq" hx-trigger="click" hx-target="#page" {
                                          "FAQ's"
                                      }
-                                     a class="hover:text-blue-700 px-4 py-2"
+                                     div class="hover:text-blue-700 px-4 py-2"
                                        hx-get="/sponsors" hx-trigger="click" hx-target="#page" {
                                          "Our Sponsors"
                                      }
 
 
 
-                                     a class="hover:text-blue-700 px-4 py-2"
+                                     div class="hover:text-blue-700 px-4 py-2"
                                        hx-get="/about/contact" hx-trigger="click" hx-target="#page" {
                                          "Contact Us"
                                      }
@@ -253,6 +258,8 @@ pub fn mobile_navbar() -> Markup {
                     a href=(FACEBOOK_LINK) class="" { i class="fab fa-facebook" {} }
                     a href=(INSTAGRAM_LINK) class="" { i class="fab fa-instagram" {} }
                     a href=(WHATSAPP_LINK) class="" { i class="fab fa-whatsapp" {} }
+                        a href=(YOUTUBE_LINK) class="" { i class="fab fa-youtube" {} }
+
 
 
                 }
@@ -434,6 +441,11 @@ async fn navbar() -> Markup {
                             }
                         }
                         div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-30"{
+                            div class="hover:text-blue-700 hover:underline px-4 py-2"
+                              hx-get="/about/about" hx-trigger="click" hx-target="#page" {
+                                "About Us"
+                            }
+
                             div class="hover:text-blue-700 hover:underline px-4 py-2"
                               hx-get="/about/bylaw" hx-trigger="click" hx-target="#page" {
                                 "Bylaw"
