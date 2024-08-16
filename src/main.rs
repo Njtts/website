@@ -65,11 +65,32 @@ async fn main() {
         .route("/join", get(join_page))
         .route("/join_response", post(join_response))
         .route("/sponsors", get(sponsors_page))
+        .route("/diwali", get(diwali_redirect))
         .with_state(client_state)
         .fallback(not_found);
 
     let listener = TcpListener::bind("0.0.0.0:3300").await.unwrap();
     axum::serve(listener, app).await.unwrap();
+}
+
+pub async fn diwali_redirect() -> Markup {
+    html! {
+        (DOCTYPE)
+        html lang="en" {
+            head {
+                meta charset="UTF-8";
+                meta http-equiv="refresh" content="0; url=https://forms.gle/bkuLehsKS1Y5Gfrv5";
+                title { "Redirecting..." }
+            }
+            body {
+                p {
+                    "If you are not redirected, "
+                    a href="https://forms.gle/bkuLehsKS1Y5Gfrv5" { "click here" }
+                    "."
+                }
+            }
+        }
+    }
 }
 
 pub async fn vattam_page() -> Markup {

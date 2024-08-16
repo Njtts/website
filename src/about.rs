@@ -203,7 +203,7 @@ pub async fn contact_response(Form(data): Form<ContactFormData>) -> Markup {
                 br;
                 p { "We have received your message and will get back to you at " strong { (data.email) } " as soon as possible." }
                 br;
-                p { "Our team will review your message and respond accordingly. If you have any urgent queries, feel free to call us at (123) 456-7890." }
+                p { "Our team will review your message and respond accordingly. If you have any urgent queries, feel free to call us at " (PHONE)"." }
             }
             script {
                 "document.getElementById('contact_form').style.display = 'none';"
