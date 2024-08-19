@@ -102,7 +102,9 @@ pub fn footer_markup() -> Markup {
                         div class="text-gray-400 flex flex-col space-y-2 mt-4" {
                             a hx-get="/about/about" hx-trigger="click" hx-target="#page" class="hover:text-white" { "About Us" }
                             a hx-get="/about/contact" hx-trigger="click" hx-target="#page" class="hover:text-white" { "Contact Us" }
-                            a hx-get="/faq" hx-trigger="click" hx-target="#page" class="hover:text-white" { "FAQ's" }
+                            a hx-get="/faq" hx-trigger="click" hx-target="/img/under construction.jpg" class="hover:text-white" { "FAQ's" }
+
+
                         }
                     }
 

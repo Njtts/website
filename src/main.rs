@@ -355,8 +355,12 @@ pub fn sponsors_markup() -> Markup {
 async fn sponsors_page() -> Markup {
     html! {
         div class="w-full flex flex-col items-center mt-8 bg-vertical-to-pink" {
-            h2 class="text-3xl font-bold text-center text-gray-800 mb-8" { "2024 Annual Sponsors" }
+            h2 class="text-3xl font-bold text-center text-gray-800 mb-8" { "Annual Sponsors" }
             // img src="assets/img/sponsor-collage.jpg" class="h-auto" alt="Sponsor Collage" {}
+             // Image 1
+            a href="assets/img/under construction.jpg" target="_blank" rel="noopener noreferrer" class="group relative" {
+            img src="assets/img/under construction.jpg" alt="Photo 1" class="rounded-lg object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105";
+                                    }
         }
 
     }
@@ -379,7 +383,7 @@ async fn home() -> Markup {
                             {
 
                                 p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold blink" {
-                                    "🎉 Diwali Event 🎉"
+                                    "🎉  Diwali Event 🎉"
                                 }
                                 p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold blink" {
                                     "9th Nov 2024"
