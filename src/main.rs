@@ -127,15 +127,49 @@ pub async fn vattam_page() -> Markup {
         }
     }
 }
-
 async fn events_page() -> Markup {
     html! {
-        div class="min-h-screen flex items-center justify-center flex-col space-y-10 bg-vertical-to-pink"{
-            div class=""{
-                h1 class="text-center text-red-800 text-5xl md:text-7xl lg:text-9xl font-bold "{"Events"}
+        div class="min-h-screen flex items-center justify-center flex-col space-y-10 bg-vertical-to-pink" {
+            div class="" {
+                h1 class="text-center text-red-800 text-5xl md:text-7xl lg:text-9xl font-bold" {
+                    "Events"
+                }
+            }
+            div class="space-y-4 text-center text-xl md:text-2xl lg:text-3xl" {
+                // Upcoming Events Section
+                div class="space-y-4" {
+                    h2 class="text-red-700 font-semibold" { "Upcoming Events" }
+                    div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" {
+                        div class="transition-transform transform hover:scale-105" {
+                            img src="assets/img/posters/diwali.jpeg" class="w-full max-w-xs md:max-w-sm lg:max-w-md" alt="Diwali poster" {}
+                        }
+                        // Add more events here as needed
+                    }
+                }
+
+                // Past Events Section
+                div class="space-y-4" {
+                    h2 class="text-red-700 font-semibold" { "Past Events - 2024" }
+                    div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" {
+                        div class="transition-transform transform hover:scale-105" {
+                            img src="assets/img/posters/parampariya_villaiyattu.jpeg" class="w-full max-w-xs md:max-w-sm lg:max-w-md" alt="Parampariya Villaiyattu poster" {}
+                            p {
+                                a href="#" { "Parampariya Villaiyattu – Photos shared" }
+                            }
+                        }
+                        div class="transition-transform transform hover:scale-105" {
+                            img src="assets/img/posters/tamil_new_year.jpeg" class="w-full max-w-xs md:max-w-sm lg:max-w-md" alt="Tamil New Year poster" {}
+                            p {
+                                a href="https://www.youtube.com/channel/UC9LhEXQetQ79azKR-N7Tthg" {
+                                    "Tamil New year – Thiruvalluvar Tamil Sangam @TTS Parsipanny YouTube channel"
+                                }
+                            }
+                        }
+                        // Add more past events here as needed
+                    }
+                }
             }
         }
-
     }
 }
 

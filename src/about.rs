@@ -176,9 +176,16 @@ pub async fn contact_response(Form(data): Form<ContactFormData>) -> Markup {
     let smtp_username = std::env::var("SMTP_USERNAME").expect("SMTP_USERNAME must be set");
     let smtp_password = std::env::var("SMTP_PASSWORD").expect("SMTP_PASSWORD must be set");
     let smtp_server = std::env::var("SMTP_SERVER").expect("SMTP_SERVER must be set");
-    let email = Message::builder()
+    let self_email = Message::builder()
         .from(smtp_username.parse().unwrap())
         .to(smtp_username.parse().unwrap())
+        .subject(format!("Contact from {}", data.email))
+        .header(ContentType::TEXT_PLAIN)
+        .body(data.to_string())
+        .unwrap();
+    let email = Message::builder()
+        .from(smtp_username.parse().unwrap())
+        .to(data.email.parse().unwrap())
         .subject(format!("Contact from {}", data.email))
         .header(ContentType::TEXT_PLAIN)
         .body(data.to_string())
@@ -193,6 +200,10 @@ pub async fn contact_response(Form(data): Form<ContactFormData>) -> Markup {
         .build();
 
     // Send the email
+    match mailer.send(&self_email) {
+        Ok(_) => println!("Email sent successfully!"),
+        Err(e) => panic!("Could not send email: {e:?}"),
+    }
     match mailer.send(&email) {
         Ok(_) => println!("Email sent successfully!"),
         Err(e) => panic!("Could not send email: {e:?}"),
