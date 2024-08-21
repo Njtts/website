@@ -64,15 +64,16 @@ async fn main() {
         .route("/enrollment_guide", get(enrollment_guide))
         .route("/join", get(join_page))
         .route("/join_response", post(join_response))
-        .route("/sponsors", get(sponsors_page))
+        .route("/sponsors", get(under_construction))
         .route("/diwali", get(diwali_redirect))
+        .route("/library", get(under_construction))
+        .route("/faq", get(under_construction))
         .with_state(client_state)
         .fallback(not_found);
 
     let listener = TcpListener::bind("0.0.0.0:3300").await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
-
 pub async fn diwali_redirect() -> Markup {
     html! {
         (DOCTYPE)
@@ -226,7 +227,7 @@ pub fn mobile_navbar() -> Markup {
                                          "Our Team"
                                      }
                                      div class="hover:text-blue-700 px-4 py-2"
-                                       hx-get="/about/faq" hx-trigger="click" hx-target="#page" {
+                                       hx-get="/faq" hx-trigger="click" hx-target="#page" {
                                          "FAQ's"
                                      }
                                      div class="hover:text-blue-700 px-4 py-2"
@@ -381,10 +382,10 @@ pub fn sponsors_markup() -> Markup {
     }
 }
 
-async fn sponsors_page() -> Markup {
+async fn under_construction() -> Markup {
     html! {
         div class="w-full flex flex-col items-center mt-8 bg-vertical-to-pink" {
-            h2 class="text-3xl font-bold text-center text-gray-800 mb-8" { "Annual Sponsors" }
+            // h2 class="text-3xl font-bold text-center text-gray-800 mb-8" { "Annual Sponsors" }
             // img src="assets/img/sponsor-collage.jpg" class="h-auto" alt="Sponsor Collage" {}
              // Image 1
             a href="assets/img/under construction.jpg" target="_blank" rel="noopener noreferrer" class="group relative" {
@@ -467,7 +468,7 @@ async fn home() -> Markup {
 }
 async fn navbar() -> Markup {
     html! {
-        nav id="navb" class=" p-4"{
+        nav id="navb" class=" bg-pink-to-white p-4"{
 
             div class="container mx-auto flex items-center justify-between gap-6"{
                 div class = "flex items-center gap-4"
@@ -509,7 +510,7 @@ async fn navbar() -> Markup {
                                 "Our Team"
                             }
                             div class="hover:text-blue-700 px-4 py-2"
-                              hx-get="/about/faq" hx-trigger="click" hx-target="#page" {
+                              hx-get="/faq" hx-trigger="click" hx-target="#page" {
                                 "FAQ's"
                             }
                             div class="hover:text-blue-700 px-4 py-2"

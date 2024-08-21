@@ -11,7 +11,7 @@ use serde::Deserialize;
 
 use crate::{
     links::{EMAIL, PHONE, WHATSAPP_LINK},
-    ClientState,
+    under_construction, ClientState,
 };
 
 pub fn about_router() -> Router<ClientState> {
@@ -27,7 +27,7 @@ pub async fn about_page() -> Markup {
         div class="bg-vertical-to-pink"{
 
         div class="bg-white bg-opacity-90 px-4 mx-auto max-w-screen-md relative z-5" {
-            h2 class="mb-8 text-center text-4xl tracking-tight font-extrabold text-gray-900" {
+            h2 class="mb-8 mt-4 text-center text-4xl tracking-tight font-extrabold text-gray-900" {
                 "About Us"
             }
 
