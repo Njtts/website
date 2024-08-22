@@ -420,7 +420,7 @@ async fn home() -> Markup {
                                     "9th Nov 2024"
                                 }
                                 p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
-                                    a href="https://njtts.org/diwali" class="text-blue-500 underline"{"Click here"} " to register"
+                                    a href="https://njtts.org/diwali" class="text-blue-500 underline"{"Click here "} "to register"
                                 }
 
 
