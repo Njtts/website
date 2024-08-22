@@ -420,7 +420,7 @@ async fn home() -> Markup {
                                     "9th Nov 2024"
                                 }
                                 p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
-                                    a href="https://njtts.org/diwali" class="text-blue-500 underline"{"Click here "} "to register"
+                                    a href="https://njtts.org/diwali" class="text-blue-500 underline"{"Click here"} " to register"
                                 }
 
 
@@ -446,7 +446,7 @@ async fn home() -> Markup {
         const events = [
             '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl">Tamil School Registration for the upcoming 2024-2025 year is now <a hx-get="/enrollment_guide" hx-trigger="click" hx-target="#page" class="text-blue-600 underline">open!</a></div>',
 
-            '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl"><a class="text-blue-600 underline" href="https://chat.whatsapp.com/FjyUCpSVjIQDv04xSnBAZc">Hiking Club</a>: June 22, Saturday 6.15 am, <a class="text-blue-600 underline" href="https://www.alltrails.com/trail/us/new-jersey/normanook-tower-via-appalachian-trail-loop?sh=bcs169">Normanook Tower via Appalachian Trail Loop</a></div>',
+            '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl"><a class="text-blue-600 underline" href="assets/img/fall-festival.jpeg">TTS-Fall Festival</a>: Sep 15th at Smith Field Park, Parsippany</div>',
 
             '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl">Run on Wednesday</div>'
         ];
