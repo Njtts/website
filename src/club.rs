@@ -4,7 +4,7 @@ pub async fn walking_page() -> Markup {
     html! {
         section class="bg-white py-8 lg:py-16 px-4 mx-auto max-w-screen-md" {
             div class="text-center mb-8" {
-                img src="assets/img/hiking_code.jpeg" alt="QR Code" class="mx-auto mb-4" {}
+                img src="assets/img/codes/walking.jpeg" alt="QR Code" class="mx-auto mb-4" {}
                 a href="your_whatsapp_link_here" target="_blank" rel="noopener noreferrer" class="text-green-500 hover:underline" { "Join Our Whatsapp Group!" }
             }
             h2 class="mb-4 text-center text-4xl tracking-tight font-extrabold text-gray-900" {"Step into Serenity: Introducing Our TTSWalking Club"}
@@ -55,7 +55,7 @@ pub async fn running_page() -> Markup {
     html! {
         section class="bg-white py-8 lg:py-16 px-4 mx-auto max-w-screen-md" {
             div class="text-center mb-8" {
-                img src="assets/img/hiking_code.jpeg" alt="QR Code" class="mx-auto mb-4" {}
+                img src="assets/img/codes/running.jpeg" alt="QR Code" class="mx-auto mb-4" {}
                 a href="your_whatsapp_link_here" target="_blank" rel="noopener noreferrer" class="text-green-500 hover:underline" { "Join Our Whatsapp Group!" }
             }
             h2 class="mb-4 text-center text-4xl tracking-tight font-extrabold text-gray-900" { "Explore, Connect, and Conquer Nature: Welcome to Our TTS Hiking Club" }

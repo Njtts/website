@@ -258,33 +258,34 @@ pub fn mobile_navbar() -> Markup {
                                      }
                                  }
                                  div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-30"{
-                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
-                                       hx-get="/library" hx-trigger="click" hx-target="#page" {
-                                         "Tamil Library"
-                                     }
 
-                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                     div class="hover:text-blue-700 hover:underline px-4 py-2"
                                        hx-get="/vattam" hx-trigger="click" hx-target="#page" {
                                          "NJ Vasagar Vattam"
                                      }
 
 
-                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                     div class="hover:text-blue-700 hover:underline px-4 py-2"
                                        hx-get="/walking_club" hx-trigger="click" hx-target="#page" {
                                          "Walking Club"
                                      }
-                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                     div class="hover:text-blue-700 hover:underline px-4 py-2"
                                        hx-get="/hiking_club" hx-trigger="click" hx-target="#page" {
                                          "Hiking Club"
                                      }
-                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                     div class="hover:text-blue-700 hover:underline px-4 py-2"
                                        hx-get="/running_club" hx-trigger="click" hx-target="#page" {
                                          "Running Club"
                                      }
-                                     a class="hover:text-blue-700 hover:underline px-4 py-2"
+                                     div class="hover:text-blue-700 hover:underline px-4 py-2"
                                        hx-get="/tamil_school" hx-trigger="click" hx-target="#page" {
                                          "NJ Tamil Schools"
                                      }
+                                     div class="hover:text-blue-700 hover:underline px-4 py-2"
+                                       hx-get="/library" hx-trigger="click" hx-target="#page" {
+                                         "Tamil Library"
+                                     }
+
 
                                  }
 
@@ -330,9 +331,9 @@ pub fn mobile_navbar() -> Markup {
 }
 pub fn sponsors_markup() -> Markup {
     html! {
-        div class="w-full flex flex-col items-center mt-8 bg-vertical-to-pink relative" {
+        div class="flex flex-col items-center bg-vertical-to-pink relative mx-[10%] my-[5%]" {
 
-            div class="relative w-full max-w-3xl" {
+            div class="relative w-full" {
                 div class="carousel overflow-hidden relative" {
                     div class="carousel-items flex transition-transform duration-500 ease-in-out" id="carousel-items" {
                         // Repeat the following div for each sponsor image
@@ -412,10 +413,10 @@ async fn home() -> Markup {
 
                             {
 
-                                p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold blink" {
+                                p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold animate-blink-color" {
                                     "🎉  Diwali Event 🎉"
                                 }
-                                p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold blink" {
+                                p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold animate-blink-color" {
                                     "9th Nov 2024"
                                 }
 
@@ -548,10 +549,6 @@ async fn navbar() -> Markup {
                             }
                         }
                         div class="hidden dropdown-menu absolute bg-gray-100 rounded-b-lg pb-2 w-48 flex flex-col z-30"{
-                            div class="hover:text-blue-700 hover:underline px-4 py-2"
-                              hx-get="/library" hx-trigger="click" hx-target="#page" {
-                                "Tamil Library"
-                            }
 
                             div class="hover:text-blue-700 hover:underline px-4 py-2"
                               hx-get="/vattam" hx-trigger="click" hx-target="#page" {
@@ -575,7 +572,13 @@ async fn navbar() -> Markup {
                               hx-get="/tamil_school" hx-trigger="click" hx-target="#page" {
                                 "NJ Tamil Schools"
                             }
+                            div class="hover:text-blue-700 hover:underline px-4 py-2"
+                              hx-get="/library" hx-trigger="click" hx-target="#page" {
+                                "Tamil Library"
+                            }
+
                         }
+
                     }
                     }
                     div {
@@ -614,7 +617,7 @@ async fn navbar() -> Markup {
                     });
 
                     // Close the dropdown when a link inside it is clicked
-                    const links = toggle.nextElementSibling.querySelectorAll("a");
+                    const links = toggle.nextElementSibling.querySelectorAll("div");
                     links.forEach(link => {
                         link.addEventListener("click", () => {
                             toggle.nextElementSibling.classList.add("hidden");

@@ -624,6 +624,11 @@ video {
   z-index: 30;
 }
 
+.mx-\[10\%\] {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -637,6 +642,11 @@ video {
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+.my-\[5\%\] {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .mb-2 {
@@ -681,10 +691,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
 }
 
 .block {
@@ -780,10 +786,6 @@ video {
   min-width: 100%;
 }
 
-.max-w-3xl {
-  max-width: 48rem;
-}
-
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -816,6 +818,24 @@ video {
 
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@keyframes blink-color {
+  0%, 100% {
+    color: #FFD700;
+  }
+
+  33% {
+    color: #FF4500;
+  }
+
+  66% {
+    color: #00FF00;
+  }
+}
+
+.animate-blink-color {
+  animation: blink-color 2s infinite;
 }
 
 .select-none {
