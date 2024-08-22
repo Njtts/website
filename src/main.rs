@@ -448,7 +448,6 @@ async fn home() -> Markup {
 
             '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl"><a class="text-blue-600 underline" href="assets/img/fall-festival.jpeg">TTS-Fall Festival</a>: Sep 15th at Smith Field Park, Parsippany</div>',
 
-            '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl">Run on Wednesday</div>'
         ];
 
           let eventIndex = 0;
