@@ -409,7 +409,7 @@ async fn home() -> Markup {
                                 -translate-y-1/4
                                 sm:-translate-y-1/3
                                 md:-translate-y-2/3
-                                flex flex-col items-center justify-center text-center text-blue-500 font-taviraj "
+                                flex flex-col items-center justify-center text-center font-taviraj "
 
                             {
 
@@ -419,6 +419,11 @@ async fn home() -> Markup {
                                 p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold animate-blink-color" {
                                     "9th Nov 2024"
                                 }
+                                p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
+                                    a href="https://njtts.org/diwali" class="text-blue-500 underline"{"Click here"} " to register"
+                                }
+
+
 
                         }
 

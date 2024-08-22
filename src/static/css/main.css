@@ -838,6 +838,10 @@ video {
   animation: blink-color 2s infinite;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .select-none {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1497,6 +1501,11 @@ video {
     font-size: 8rem;
     line-height: 1;
   }
+
+  .lg\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -1504,9 +1513,19 @@ video {
     font-size: 2.25rem;
     line-height: 2.5rem;
   }
+
+  .xl\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 1536px) {
+  .\32xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .\32xl\:text-5xl {
     font-size: 3rem;
     line-height: 1;
