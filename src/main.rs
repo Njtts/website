@@ -446,7 +446,7 @@ async fn home() -> Markup {
         const events = [
             '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl">Tamil School Registration for the upcoming 2024-2025 year is now <a hx-get="/enrollment_guide" hx-trigger="click" hx-target="#page" class="text-blue-600 underline">open!</a></div>',
 
-            '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl"><a class="text-blue-600 underline" href="assets/img/fall-festival.jpeg">TTS-Fall Festival</a>: Sep 15th at Smith Field Park, Parsippany</div>',
+            '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl"><a class="text-blue-600 underline" href="assets/img/TTS-Fall_festival_2024.jpg">TTS-Fall Festival</a>: Sep 15th at Smith Field Park, Parsippany</div>',
 
         ];
 
