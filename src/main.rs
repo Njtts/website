@@ -134,9 +134,18 @@ async fn events_page() -> Markup {
         div class="min-h-screen flex items-center justify-center flex-col space-y-10 bg-vertical-to-pink text-center text-xl md:text-2xl lg:text-3xl" {
             // Upcoming Events Section
                 h2 class="text-red-700 font-semibold" { "Upcoming Events" }
-                a href="https://njtts.org/diwali"  class="transition-transform transform hover:scale-105 relative" {
-                    img src="assets/img/posters/diwali.jpeg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="Diwali poster" {}
+                div class="flex flex-row space-x-4"{
+                    a href="https://njtts.org/diwali"  class="transition-transform transform hover:scale-105 relative" {
+                        img src="assets/img/posters/fall_festival.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="fall festival Poster" {}
+                    }
+
+                    a href="https://njtts.org/diwali"  class="transition-transform transform hover:scale-105 relative" {
+                        img src="assets/img/posters/diwali.jpeg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="Diwali poster" {}
+                    }
+
+
                 }
+
                 // Add more events here as needed
 
             // Past Events Section
@@ -446,7 +455,7 @@ async fn home() -> Markup {
         const events = [
             '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl">Tamil School Registration for the upcoming 2024-2025 year is now <a hx-get="/enrollment_guide" hx-trigger="click" hx-target="#page" class="text-blue-600 underline">open!</a></div>',
 
-            '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl"><a class="text-blue-600 underline" href="assets/img/TTS-Fall_festival_2024.jpg">TTS-Fall Festival</a>: Sep 15th at Smith Field Park, Parsippany</div>',
+            '<div id="event" class="font-roboto sm:text-xl md:text-2xl lg:text-3xl"><a class="text-blue-600 underline" hx-get="/events" hx-trigger="click" hx-target="#page" >TTS-Fall Festival</a>: Sep 15th at Smith Field Park, Parsippany</div>',
 
         ];
 
