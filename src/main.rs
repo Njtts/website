@@ -135,8 +135,7 @@ async fn events_page() -> Markup {
             // Upcoming Events Section
                 h2 class="text-red-700 font-semibold" { "Upcoming Events" }
                 div class="flex flex-row space-x-4"{
-                    a href="https://njtts.org/diwali"  class="transition-transform transform hover:scale-105 relative" {
-                        img src="assets/img/posters/fall_festival.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="fall festival Poster" {}
+                            img src="assets/img/posters/fall_festival.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="fall festival Poster" {}
                     }
 
                     a href="https://njtts.org/diwali"  class="transition-transform transform hover:scale-105 relative" {
@@ -176,7 +175,7 @@ async fn events_page() -> Markup {
             }
         }
     }
-}
+
 
 async fn index() -> Markup {
     let content = html! {
@@ -516,7 +515,7 @@ async fn navbar() -> Markup {
                             }
 
                             div class="hover:text-blue-700 hover:underline px-4 py-2"
-                              hx-get="/about/bylaw" hx-trigger="click" hx-target="#page" {
+                              hx-get="asset/img/our team.txt" hx-trigger="click" hx-target="#page" {
                                 "Bylaw"
                             }
                             div class="hover:text-blue-700 px-4 py-2"
