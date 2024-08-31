@@ -174,7 +174,7 @@ async fn events_page() -> Markup {
                 }
             }
         }
-    }
+}
 
 
 async fn index() -> Markup {
@@ -345,8 +345,18 @@ pub fn sponsors_markup() -> Markup {
                 div class="carousel overflow-hidden relative" {
                     div class="carousel-items flex transition-transform duration-500 ease-in-out" id="carousel-items" {
                         // Repeat the following div for each sponsor image
-                        div class="carousel-item min-w-full flex-shrink-0" {
-                            img src="assets/img/sponsor.jpg" class="w-full h-auto" alt="Sponsor 1" {}
+                        div class="carousel-item min-w-full flex-shrink items-center" {
+                           // img src="assets/img/sponsor.jpg" class="w-full h-auto" alt="Sponsor 1" {}
+                         p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900 items-center" {
+                                                     "1000$ - Gold Sponsor"
+                           }
+                              p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900 items-center" {
+                                                          "500$ - 1year"
+                                }
+                                       p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900 items-center" {
+                                                                   "300$ - 2years"
+                                         }
+
                         }
                         div class="carousel-item min-w-full flex-shrink-0" {
                             img src="assets/img/sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
@@ -439,8 +449,12 @@ async fn home() -> Markup {
             }
             div class="bg-slate-200 text-center h-20 flex items-center justify-center" id="notificationBanner" {
                         div class="font-bold transition-opacity duration-500 opacity-100 text-3xl" {
-                        }
-                    }
+                     p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900"{
+                                    "1000$ - Gold Sponsor"    }
+                       p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900"{
+                                      "500$ per annum - 2years"    }
+                     p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900"{
+                }}                  "300$ per annum - 1year"    }
 
             (sponsors_markup())
         }
@@ -463,8 +477,7 @@ async fn home() -> Markup {
           function updateBanner() {
             const banner = document.getElementById('notificationBanner');
             banner.style.opacity = 0; // Start fade out
-
-            setTimeout(() => {
+          setTimeout(() => {
               banner.innerHTML = events[eventIndex];
               banner.style.opacity = 1; // Fade in
               eventIndex = (eventIndex + 1) % events.length;
@@ -521,7 +534,6 @@ async fn navbar() -> Markup {
                             div class="hover:text-blue-700 px-4 py-2"
                               hx-get="/about/team" hx-trigger="click" hx-target="#page" {
                                 "Our Team"
-
                             }
                             div class="hover:text-blue-700 px-4 py-2"
                               hx-get="/faq" hx-trigger="click" hx-target="#page" {
@@ -531,14 +543,10 @@ async fn navbar() -> Markup {
                               hx-get="/sponsors" hx-trigger="click" hx-target="#page" {
                                 "Our Sponsors"
                             }
-
-
-
                             div class="hover:text-blue-700 px-4 py-2"
                               hx-get="/about/contact" hx-trigger="click" hx-target="#page" {
                                 "Contact Us"
                             }
-
                         }
                     }
 

@@ -69,11 +69,7 @@ pub async fn team_page() -> Markup {
         div class="bg-vertical-to-pink"{
 
         div class="bg-pink-500 bg-opacity-90 px-4 mx-auto max-w-screen-md relative z-5" {
-           /* h2 class="mb-8 mt-4 text-center text-4xl tracking-tight font-extrabold text-gray-900" {
-                "Our Team"
-            }*/
-
-            //p class="mb-4 lg:mb-8 font-light sm:text-xl tracking-tight font-extrabold text-gray-900" {
+             //p class="mb-4 lg:mb-8 font-light sm:text-xl tracking-tight font-extrabold text-gray-900" {
                p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900"{
                 "Board of Directors:"
             }
