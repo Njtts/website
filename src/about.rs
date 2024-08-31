@@ -87,7 +87,7 @@ pub async fn team_page() -> Markup {
         div class="min-h-screen flex items-center justify-center flex-col space-y-10 bg-vertical-to-pink"{
             div class=""{
                 h1 class="text-center text-red-800 text-5xl md:text-7xl lg:text-9xl font-bold "{"Team"}
-                a href="asset/img/our_team.txt";
+                a href="asset/img/our_team.jpg";
             }
         }
 

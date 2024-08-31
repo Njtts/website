@@ -519,8 +519,9 @@ async fn navbar() -> Markup {
                                 "Bylaw"
                             }
                             div class="hover:text-blue-700 px-4 py-2"
-                              hx-get="/about/team" hx-trigger="click" hx-target="#page" {
+                              hx-get="asset/img/Our_team.txt" hx-trigger="click" hx-target="#page" {
                                 "Our Team"
+
                             }
                             div class="hover:text-blue-700 px-4 py-2"
                               hx-get="/faq" hx-trigger="click" hx-target="#page" {
