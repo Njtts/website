@@ -112,7 +112,7 @@ pub async fn team_page() -> Markup {
                 "TBD"
             }
            // p class="mb-4 lg:mb-8 font-light sm:text-xl" {
-                  p class="mb-2  text-xl tracking-tight font-extrabold text-gray-900"{
+                  p class="mb-2  text-sm tracking-tight font-extrabold text-gray-900"{
                 "TTS Website development by Nitin Muthukumar"
             }
         }
