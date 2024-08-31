@@ -54,6 +54,7 @@ async fn main() {
         .route("/", get(index))
         .route("/navbar", get(navbar))
         .route("/home", get(home))
+         .route("/byLaw", get(under_construction))
         .route("/events", get(events_page))
         .route("/gallery", get(gallery_page))
         .route("/hiking_club", get(hiking_page))
@@ -162,9 +163,9 @@ async fn events_page() -> Markup {
                         img src="assets/img/posters/fathersday.jpeg" class="w-full h-full object-cover" alt="Father's Day poster" {}
             }
 
-                   /* div class="transition-transform transform hover:scale-105 relative aspect-w-3 aspect-h-4"{
-                        img src="assets/img/posters/tamilny.jpeg" class="w-full h-full object-cover" alt="Tamil New Year poster" {}
-                    }*/
+                    div class="transition-transform transform hover:scale-105 relative aspect-w-3 aspect-h-4"{
+                        img src="assets/img/posters/Tamil_New_Year_2024.jpg" class="w-full h-full object-cover" alt="Tamil New Year poster" {}
+                    }
 
                     a href="https://drive.google.com/file/d/1tbAjLiUVyjootpo2b6hAeE4RH9vDQWy4/view?ts=66bbd394" class="transition-transform transform hover:scale-105 relative aspect-w-3 aspect-h-4"{
                         img src="assets/img/posters/villaiyattu.jpeg" class="w-full h-full object-cover" alt="Villaiyattu poster" {}
@@ -227,7 +228,7 @@ pub fn mobile_navbar() -> Markup {
                                      }
 
                                      div class="hover:text-blue-700 hover:underline px-4 py-2"
-                                       hx-get="/about/bylaw" hx-trigger="click" hx-target="#page" {
+                                       hx-get="/bylaw" hx-trigger="click" hx-target="#page" {
                                          "Bylaw"
                                      }
                                      div class="hover:text-blue-700 px-4 py-2"
@@ -347,13 +348,13 @@ pub fn sponsors_markup() -> Markup {
                         // Repeat the following div for each sponsor image
                         div class="carousel-item min-w-full flex-shrink items-center" {
                            // img src="assets/img/sponsor.jpg" class="w-full h-auto" alt="Sponsor 1" {}
-                         p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900 items-center" {
+                         p class="mb-2  text-2xl tracking-tight font-extrabold animate-blink-color text-center" {
                                                      "1000$ - Gold Sponsor"
                            }
-                              p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900 items-center" {
-                                                          "500$ - 1year"
+                              p class="mb-2  text-2xl tracking-tight font-extrabold animate-blink-color text-center" {
+                                                          "500$ per Annum - 1year"
                                 }
-                                       p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900 items-center" {
+                                       p class="mb-2  text-2xl tracking-tight font-extrabold animate-blink-color text-center" {
                                                                    "300$ - 2years"
                                          }
 
@@ -528,7 +529,7 @@ async fn navbar() -> Markup {
                             }
 
                             div class="hover:text-blue-700 hover:underline px-4 py-2"
-                              hx-get="ByLaw" hx-trigger="click" hx-target="#page" {
+                              hx-get="/byLaw" hx-trigger="click" hx-target="#page" {
                                 "Bylaw"
                             }
                             div class="hover:text-blue-700 px-4 py-2"
