@@ -449,12 +449,6 @@ async fn home() -> Markup {
 
             }
 
-
-
-
-
-
-
             (sponsors_markup())
         }
         (PreEscaped(r##"
