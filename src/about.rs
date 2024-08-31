@@ -68,7 +68,7 @@ pub async fn team_page() -> Markup {
     html! {
         div class="bg-vertical-to-pink"{
 
-        div class="bg-white bg-opacity-90 px-4 mx-auto max-w-screen-md relative z-5" {
+        div class="bg-pink-500 bg-opacity-90 px-4 mx-auto max-w-screen-md relative z-5" {
            /* h2 class="mb-8 mt-4 text-center text-4xl tracking-tight font-extrabold text-gray-900" {
                 "Our Team"
             }*/
@@ -77,21 +77,27 @@ pub async fn team_page() -> Markup {
                p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900"{
                 "Board of Directors:"
             }
-            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+           // p class="mb-4 lg:mb-8 font-light sm:text-xl font-extrabold text-gray-900" {
+                    p class="mb-2  text-xl tracking-tight font-extrabold text-orange" {
                 "Mr. Sethumadhavan Gnanavelu - President"
             }
-            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+            //p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                 p class="mb-2  text-xl tracking-tight font-extrabold text-gray-900"{
                 "Mr. Vijayanand Rajendran - Vice President"
             }
-            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
-                "Mrs. Deebapriya Periyasamy - Secretary"
-            }
-            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
-                "Mrs. Sorna Deepa Vellaichamy - Secretary "
-            }
-            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                p class="mb-2  text-xl tracking-tight font-extrabold text-red"{
                 "Mr. Rajesh Ranganathan - Treasurer"
             }
+            //p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                           p class="mb-2  text-xl tracking-tight font-extrabold text-gray-900"{
+                "Mrs. Deebapriya Periyasamy - Secretary"
+            }
+            //p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                               p class="mb-2  text-xl tracking-tight font-extrabold text-gray-900"{
+                "Mrs. Sorna Deepa Vellaichamy - Secretary "
+            }
+           // p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+
             p class="mb-4 lg:mb-8 font-light sm:text-xl" {
                 "Executive Committee Members"
             }
@@ -105,7 +111,8 @@ pub async fn team_page() -> Markup {
             p class="mb-4 lg:mb-8 font-light sm:text-xl" {
                 "TBD"
             }
-            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+           // p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                  p class="mb-2  text-xl tracking-tight font-extrabold text-gray-900"{
                 "TTS Website development by Nitin Muthukumar"
             }
         }
