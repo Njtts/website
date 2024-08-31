@@ -78,37 +78,37 @@ pub async fn team_page() -> Markup {
                 "Board of Directors:"
             }
            // p class="mb-4 lg:mb-8 font-light sm:text-xl font-extrabold text-gray-900" {
-                    p class="mb-2  text-xl tracking-tight font-extrabold text-orange" {
+                    p class="mb-2  text-l tracking-tight font-extrabold text-orange" {
                 "Mr. Sethumadhavan Gnanavelu - President"
             }
             //p class="mb-4 lg:mb-8 font-light sm:text-xl" {
-                 p class="mb-2  text-xl tracking-tight font-extrabold text-gray-900"{
+                 p class="mb-2  text-l tracking-tight font-extrabold text-gray-900"{
                 "Mr. Vijayanand Rajendran - Vice President"
             }
-                p class="mb-2  text-xl tracking-tight font-extrabold text-red"{
+                p class="mb-2  text-l tracking-tight font-extrabold text-red"{
                 "Mr. Rajesh Ranganathan - Treasurer"
             }
             //p class="mb-4 lg:mb-8 font-light sm:text-xl" {
-                           p class="mb-2  text-xl tracking-tight font-extrabold text-gray-900"{
+                           p class="mb-2  text-l tracking-tight font-extrabold text-gray-900"{
                 "Mrs. Deebapriya Periyasamy - Secretary"
             }
             //p class="mb-4 lg:mb-8 font-light sm:text-xl" {
-                               p class="mb-2  text-xl tracking-tight font-extrabold text-gray-900"{
+                               p class="mb-2  text-l tracking-tight font-extrabold text-gray-900"{
                 "Mrs. Sorna Deepa Vellaichamy - Secretary "
             }
            // p class="mb-4 lg:mb-8 font-light sm:text-xl" {
 
-            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+            p class="mb-2 lg:mb-8 font-light sm:text-l" {
                 "Executive Committee Members"
             }
-            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+            p class="mb-2 lg:mb-8 font-light sm:text-l" {
                 "TBD"
             }
 
-           p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+           p class="mb-2 lg:mb-8 font-light sm:text-l" {
                 "General Committee Members"
             }
-            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+            p class="mb-2 lg:mb-8 font-light sm:text-l" {
                 "TBD"
             }
            // p class="mb-4 lg:mb-8 font-light sm:text-xl" {

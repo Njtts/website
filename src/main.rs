@@ -162,9 +162,9 @@ async fn events_page() -> Markup {
                         img src="assets/img/posters/fathersday.jpeg" class="w-full h-full object-cover" alt="Father's Day poster" {}
             }
 
-                    div class="transition-transform transform hover:scale-105 relative aspect-w-3 aspect-h-4"{
+                   /* div class="transition-transform transform hover:scale-105 relative aspect-w-3 aspect-h-4"{
                         img src="assets/img/posters/tamilny.jpeg" class="w-full h-full object-cover" alt="Tamil New Year poster" {}
-                    }
+                    }*/
 
                     a href="https://drive.google.com/file/d/1tbAjLiUVyjootpo2b6hAeE4RH9vDQWy4/view?ts=66bbd394" class="transition-transform transform hover:scale-105 relative aspect-w-3 aspect-h-4"{
                         img src="assets/img/posters/villaiyattu.jpeg" class="w-full h-full object-cover" alt="Villaiyattu poster" {}
