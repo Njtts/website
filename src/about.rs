@@ -64,6 +64,54 @@ pub async fn about_page() -> Markup {
     }
     }
 }
+pub async fn team_page() -> Markup {
+    html! {
+        div class="bg-vertical-to-pink"{
+
+        div class="bg-white bg-opacity-90 px-4 mx-auto max-w-screen-md relative z-5" {
+           /* h2 class="mb-8 mt-4 text-center text-4xl tracking-tight font-extrabold text-gray-900" {
+                "Our Team"
+            }*/
+
+            //p class="mb-4 lg:mb-8 font-light sm:text-xl tracking-tight font-extrabold text-gray-900" {
+               p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900"{
+                "Board of Directors:"
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "Mr. Sethumadhavan Gnanavelu - President"
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "Mr. Vijayanand Rajendran - Vice President"
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "Mrs. Deebapriya Periyasamy - Secretary"
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "Mrs. Sorna Deepa Vellaichamy - Secretary "
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "Mr. Rajesh Ranganathan - Treasurer"
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "Executive Committee Members"
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "TBD"
+            }
+
+           p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "General Committee Members"
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "TBD"
+            }
+            p class="mb-4 lg:mb-8 font-light sm:text-xl" {
+                "TTS Website development by Nitin Muthukumar"
+            }
+        }
+    }
+    }
+}
 
 pub async fn bylaw_page() -> Markup {
     html! {
@@ -82,17 +130,16 @@ pub async fn bylaw_page() -> Markup {
     }
 }
 
-pub async fn team_page() -> Markup {
+/*pub async fn team_page() -> Markup {
     html! {
         div class="min-h-screen flex items-center justify-center flex-col space-y-10 bg-vertical-to-pink"{
             div class=""{
                 h1 class="text-center text-red-800 text-5xl md:text-7xl lg:text-9xl font-bold "{"Team"}
-                a href="asset/img/our_team.jpg";
-            }
+                }
         }
 
     }
-}
+}*/
 pub async fn contact_page() -> Markup {
     html! {
         div class="bg-vertical-to-pink"{

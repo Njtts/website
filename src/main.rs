@@ -515,11 +515,11 @@ async fn navbar() -> Markup {
                             }
 
                             div class="hover:text-blue-700 hover:underline px-4 py-2"
-                              hx-get="asset/img/our team.txt" hx-trigger="click" hx-target="#page" {
+                              hx-get="ByLaw" hx-trigger="click" hx-target="#page" {
                                 "Bylaw"
                             }
                             div class="hover:text-blue-700 px-4 py-2"
-                              hx-get="asset/img/Our_team.txt" hx-trigger="click" hx-target="#page" {
+                              hx-get="/about/team" hx-trigger="click" hx-target="#page" {
                                 "Our Team"
 
                             }
