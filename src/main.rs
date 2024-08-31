@@ -54,7 +54,7 @@ async fn main() {
         .route("/", get(index))
         .route("/navbar", get(navbar))
         .route("/home", get(home))
-         .route("/byLaw", get(under_construction))
+        .route("/byLaw", get(under_construction))
         .route("/events", get(events_page))
         .route("/gallery", get(gallery_page))
         .route("/hiking_club", get(hiking_page))
@@ -348,14 +348,14 @@ pub fn sponsors_markup() -> Markup {
                         // Repeat the following div for each sponsor image
                         div class="carousel-item min-w-full flex-shrink items-center" {
                            // img src="assets/img/sponsor.jpg" class="w-full h-auto" alt="Sponsor 1" {}
-                         p class="mb-2  text-2xl tracking-tight font-extrabold animate-blink-color text-center" {
+                         p class="mb-2  text-xl tracking-tight font-extrabold animate-blink-color text-center" {
                                                      "1000$ - Gold Sponsor"
                            }
-                              p class="mb-2  text-2xl tracking-tight font-extrabold animate-blink-color text-center" {
-                                                          "500$ per Annum - 1year"
+                              p class="mb-2  text-xl tracking-tight font-extrabold animate-blink-color text-center" {
+                                                          "300$ per Annum - 1year"
                                 }
-                                       p class="mb-2  text-2xl tracking-tight font-extrabold animate-blink-color text-center" {
-                                                                   "300$ - 2years"
+                                       p class="mb-2  text-xl tracking-tight font-extrabold animate-blink-color text-center" {
+                                                                   "500$(dicounted price) - 2years"
                                          }
 
                         }
@@ -448,14 +448,12 @@ async fn home() -> Markup {
 
 
             }
-            div class="bg-slate-200 text-center h-20 flex items-center justify-center" id="notificationBanner" {
-                        div class="font-bold transition-opacity duration-500 opacity-100 text-3xl" {
-                     p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900"{
-                                    "1000$ - Gold Sponsor"    }
-                       p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900"{
-                                      "500$ per annum - 2years"    }
-                     p class="mb-2  text-2xl tracking-tight font-extrabold text-gray-900"{
-                }}                  "300$ per annum - 1year"    }
+
+
+
+
+
+
 
             (sponsors_markup())
         }
