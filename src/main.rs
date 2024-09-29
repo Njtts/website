@@ -135,13 +135,18 @@ async fn events_page() -> Markup {
         div class="min-h-screen flex items-center justify-center flex-col space-y-10 bg-vertical-to-pink text-center text-xl md:text-2xl lg:text-3xl" {
             // Upcoming Events Section
                 h2 class="text-red-700 font-semibold" { "Upcoming Events" }
+             p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
+                                    a href="https://njtts.org/diwali" class="text-blue-500 underline"{"Click here to register for Diwali Event"}
+            }
+
+             a href="https://njtts.org/diwali"  class="transition-transform transform hover:scale-105 relative" {
+                        img src="assets/img/posters/Deepavali-2024.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="Diwali poster" {}
+                    }
                 div class="flex flex-row space-x-4"{
                             img src="assets/img/posters/fall_festival.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="fall festival Poster" {}
                     }
 
-                    a href="https://njtts.org/diwali"  class="transition-transform transform hover:scale-105 relative" {
-                        img src="assets/img/posters/diwali.jpeg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="Diwali poster" {}
-                    }
+
 
 
                 }
@@ -349,10 +354,10 @@ pub fn sponsors_markup() -> Markup {
                         div class="carousel-item min-w-full flex-shrink items-center" {
                            // img src="assets/img/sponsor.jpg" class="w-full h-auto" alt="Sponsor 1" {}
                          p class="mb-2  text-xl tracking-tight font-extrabold animate-blink-color text-center" {
-                                                     "1000$ - Gold Sponsor"
+                                                     "1000$ - Gold Sponsors"
                            }
                               p class="mb-2  text-xl tracking-tight font-extrabold animate-blink-color text-center" {
-                                                          "300$ per Annum - 1year"
+                                                          "300$ per Annum - Annual Sponsors"
                                 }
                                        p class="mb-2  text-xl tracking-tight font-extrabold animate-blink-color text-center" {
                                                                    "500$(dicounted price) - 2years"
@@ -441,6 +446,8 @@ async fn home() -> Markup {
                                 p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
                                     a href="https://njtts.org/diwali" class="text-blue-500 underline"{"Click here"} " to register"
                                 }
+                                  p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
+                                    a href="assets/img/TTS-Donation-Receipt.pdf" class="text-blue-500 underline"{"TTS Donation Receipt"}                                 }
 
 
 
