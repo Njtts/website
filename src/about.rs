@@ -85,10 +85,6 @@ pub async fn team_page() -> Markup {
                 "Mr. Rajesh Ranganathan - Treasurer"
             }
             //p class="mb-4 lg:mb-8 font-light sm:text-xl" {
-                           p class="mb-2  text-l tracking-tight font-extrabold text-gray-900"{
-                "Mrs. Deebapriya Periyasamy - Secretary"
-            }
-            //p class="mb-4 lg:mb-8 font-light sm:text-xl" {
                                p class="mb-2  text-l tracking-tight font-extrabold text-gray-900"{
                 "Mrs. Sorna Deepa Vellaichamy - Secretary "
             }
