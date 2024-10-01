@@ -31,12 +31,15 @@ pub async fn about_page() -> Markup {
                 "About Us"
             }
 
+
             p class="mb-4 lg:mb-8 font-light sm:text-xl" {
                 "Rooted in the rich heritage and traditions of the Tamil people, our nonprofit stands as a testament to the power of collective action and the transformative potential of community-driven initiatives. With a deep commitment to serving our members and uplifting the broader community, we strive to create a space where every individual can thrive, regardless of background or circumstance."
             }
             p class="mb-4 lg:mb-8 font-light sm:text-xl" {
                 "At the heart of our mission lies a dedication to preserving and promoting Tamil culture, language, and identity. Through a diverse array of programs, events, and initiatives, we seek to celebrate our heritage, instill pride in our traditions, and pass down our cultural legacy to future generations."
             }
+                  p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
+                                    a href="assets/img/TTS-Donation-Receipt.pdf" class="text-blue-500 underline"{"TTS Donation Receipt"}                                 }
             p class="mb-4 lg:mb-8 font-light sm:text-xl" {
                 "But our work extends far beyond cultural preservation – it's about empowerment, advocacy, and creating opportunities for growth and advancement. From educational initiatives and skill-building workshops to social welfare projects and community outreach efforts, we are committed to addressing the needs of our community and empowering individuals to realize their full potential."
             }
