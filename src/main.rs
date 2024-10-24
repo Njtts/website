@@ -365,10 +365,10 @@ pub fn sponsors_markup() -> Markup {
 
                         }
                         div class="carousel-item min-w-full flex-shrink-0" {
-                            img src="assets/img/sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
+                            img src="assets/img/Trinity-GoldSponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
                         }
                         div class="carousel-item min-w-full flex-shrink-0" {
-                            img src="assets/img/sponsor.jpg" class="w-full h-auto" alt="Sponsor 3" {}
+                            img src="assets/img/Trinity-GoldSponsor.jpg" class="w-full h-auto" alt="Sponsor 3" {}
                         }
                     }
                 }
