@@ -368,7 +368,7 @@ pub fn sponsors_markup() -> Markup {
                             img src="assets/img/Trinity-sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
                         }
                         div class="carousel-item min-w-full flex-shrink items-center" {
-                            img src="assets/img/Trinity-sponsor.jpg" class="w-full h-auto" alt="Sponsor 3" {}
+                            img src="assets/img/Trinity-sponsor1.jpg" class="w-full h-auto" alt="Sponsor 3" {}
                         }
                     }
                 }
