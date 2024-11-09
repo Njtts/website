@@ -360,7 +360,7 @@ pub fn sponsors_markup() -> Markup {
                                                           "300$ per Annum - Annual Sponsors"
                                 }
                                        p class="mb-2  text-xl tracking-tight font-extrabold animate-blink-color text-center" {
-                                                                   "500$(dicounted price) - 2years"
+                                                                   "500$(discounted price) - 2years"
                                          }
 
                         }
