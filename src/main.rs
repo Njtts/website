@@ -437,7 +437,7 @@ async fn home() -> Markup {
 
                             {
 
-                                p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold animate-blink-color" {
+                            /*    p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold animate-blink-color" {
                                     "🎉  Diwali Event 🎉"
                                 }
                                 p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold animate-blink-color" {
@@ -445,7 +445,7 @@ async fn home() -> Markup {
                                 }
                                 p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
                                     a href="https://njtts.org/diwali" class="text-blue-500 underline"{"Click here"} " to register"
-                                }
+                                }*/
 
                         }
 
