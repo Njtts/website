@@ -66,7 +66,7 @@ async fn main() {
         .route("/join", get(join_page))
         .route("/join_response", post(join_response))
         .route("/sponsors", get(under_construction))
-        .route("/newyear", get(newyear_redirect))
+        .route("/tny25", get(newyear_redirect))
         .route("/library", get(under_construction))
         .route("/faq", get(under_construction))
         .with_state(client_state)
@@ -138,12 +138,12 @@ async fn events_page() -> Markup {
             // Upcoming Events Section
                 h2 class="text-red-700 font-semibold" { "Upcoming Events" }
              p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
-                                    a href="https://njtts.org/newyear" class="text-blue-500 underline"{"Click here to register for Tamil New Year 2025 Event"}
+                                   a href="https://njtts.org/tny25" class="text-blue-500 underline"{"Click here to register for Tamil New Year 2025 Event"}
             }
               div  class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" {
                         img src="assets/img/posters/TTS-Parambhariyavillaiyattu_2025.jpg" class="w-full h-full object-cover" alt="TTS-Parambhariyavillaiyattu_2025" {}}
 
-             a href="https://njtts.org/newyear"  class="transition-transform transform hover:scale-105 relative" {
+             a href="https://njtts.org/tny25"  class="transition-transform transform hover:scale-105 relative" {
                         img src="assets/img/posters/TTS-Tamil_New_Year_2025.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="Tamil New Year 2025 poster" {}
                     }
                 div class="flex flex-row space-x-4"{
@@ -444,7 +444,7 @@ async fn home() -> Markup {
                                     "29th Mar 2025"
                                 }
                                 p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
-                                    a href="https://njtts.org/newyear" class="text-blue-500 underline"{"Click here"} " to register"
+                                    a href="https://njtts.org/tny25" class="text-blue-500 underline"{"Click here"} " to register"
 
                                 }
 
