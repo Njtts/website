@@ -66,7 +66,7 @@ async fn main() {
         .route("/join", get(join_page))
         .route("/join_response", post(join_response))
         .route("/sponsors", get(under_construction))
-        .route("/diwali", get(diwali_redirect))
+        .route("/newyear", get(newyear_redirect))
         .route("/library", get(under_construction))
         .route("/faq", get(under_construction))
         .with_state(client_state)
@@ -75,19 +75,21 @@ async fn main() {
     let listener = TcpListener::bind("0.0.0.0:3300").await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
-pub async fn diwali_redirect() -> Markup {
+pub async fn newyear_redirect() -> Markup {
     html! {
         (DOCTYPE)
         html lang="en" {
             head {
                 meta charset="UTF-8";
-                meta http-equiv="refresh" content="0; url=https://forms.gle/bkuLehsKS1Y5Gfrv5";
+                //meta http-equiv="refresh" content="0; url=https://forms.gle/bkuLehsKS1Y5Gfrv5";
+                meta http-equiv="refresh" content="0; url=https://forms.gle/BFTQZzQ8B19hvseJ8";
                 title { "Redirecting..." }
             }
             body {
                 p {
                     "If you are not redirected, "
-                    a href="https://forms.gle/bkuLehsKS1Y5Gfrv5" { "click here" }
+                   // a href="https://forms.gle/bkuLehsKS1Y5Gfrv5" { "click here" }
+                    a href="https://forms.gle/BFTQZzQ8B19hvseJ8" { "click here" }
                     "."
                 }
             }
@@ -136,19 +138,17 @@ async fn events_page() -> Markup {
             // Upcoming Events Section
                 h2 class="text-red-700 font-semibold" { "Upcoming Events" }
              p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
-                                    a href="https://njtts.org/diwali" class="text-blue-500 underline"{"Click here to register for Diwali Event"}
+                                    a href="https://njtts.org/newyear" class="text-blue-500 underline"{"Click here to register for Tamil New Year 2025 Event"}
             }
+              div  class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" {
+                        img src="assets/img/posters/TTS-Parambhariyavillaiyattu_2025.jpg" class="w-full h-full object-cover" alt="TTS-Parambhariyavillaiyattu_2025" {}}
 
-             a href="https://njtts.org/diwali"  class="transition-transform transform hover:scale-105 relative" {
-                        img src="assets/img/posters/Deepavali-2024.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="Diwali poster" {}
+             a href="https://njtts.org/newyear"  class="transition-transform transform hover:scale-105 relative" {
+                        img src="assets/img/posters/TTS-Tamil_New_Year_2025.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="Tamil New Year 2025 poster" {}
                     }
                 div class="flex flex-row space-x-4"{
                             img src="assets/img/posters/fall_festival.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="fall festival Poster" {}
                     }
-
-
-
-
                 }
 
                 // Add more events here as needed
@@ -169,7 +169,7 @@ async fn events_page() -> Markup {
             }
 
                     div class="transition-transform transform hover:scale-105 relative aspect-w-3 aspect-h-4"{
-                        img src="assets/img/posters/Tamil_New_Year_2024.jpg" class="w-full h-full object-cover" alt="Tamil New Year poster" {}
+                        img src="assets/img/posters/TTS-Tamil_New_Year_2025.jpg" class="w-full h-full object-cover" alt="Tamil New Year poster" {}
                     }
 
                     a href="https://drive.google.com/file/d/1tbAjLiUVyjootpo2b6hAeE4RH9vDQWy4/view?ts=66bbd394" class="transition-transform transform hover:scale-105 relative aspect-w-3 aspect-h-4"{
@@ -437,15 +437,16 @@ async fn home() -> Markup {
 
                             {
 
-                            /*    p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold animate-blink-color" {
-                                    "🎉  Diwali Event 🎉"
+                                p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold animate-blink-color" {
+                                    "🎉  Tamil New year 🎉"
                                 }
                                 p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold animate-blink-color" {
-                                    "9th Nov 2024"
+                                    "29th Mar 2025"
                                 }
                                 p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
-                                    a href="https://njtts.org/diwali" class="text-blue-500 underline"{"Click here"} " to register"
-                                }*/
+                                    a href="https://njtts.org/newyear" class="text-blue-500 underline"{"Click here"} " to register"
+
+                                }
 
                         }
 
