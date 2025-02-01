@@ -353,7 +353,7 @@ pub fn sponsors_markup() -> Markup {
                         // Repeat the following div for each sponsor image
                         div class="carousel-item min-w-full flex-shrink items-center" {
                            // img src="assets/img/sponsor.jpg" class="w-full h-auto" alt="Sponsor 1" {}
-                         p class="mb-2  text-xl tracking-tight font-extrabold animate-blink-color text-center" {
+                         /*p class="mb-2  text-xl tracking-tight font-extrabold animate-blink-color text-center" {
                                                      "1000$ - Gold Sponsors"
                            }
                               p class="mb-2  text-xl tracking-tight font-extrabold animate-blink-color text-center" {
@@ -361,14 +361,15 @@ pub fn sponsors_markup() -> Markup {
                                 }
                                        p class="mb-2  text-xl tracking-tight font-extrabold animate-blink-color text-center" {
                                                                    "500$(discounted price) - 2years"
-                                         }
+                                         }*/
+                            img src="assets/img/Sponsors-Package.jpg" class="w-full h-auto" alt="Sponsor 2" {}
 
                         }
                         div class="carousel-item min-w-full flex-shrink items-center" {
                             img src="assets/img/Trinity-sponsor1.jpg" class="w-full h-auto" alt="Sponsor 2" {}
                         }
                         div class="carousel-item min-w-full flex-shrink items-center" {
-                            img src="assets/img/Trinity-sponsor1.jpg" class="w-full h-auto" alt="Sponsor 3" {}
+                            img src="assets/img/Sponsors-Package.jpg" class="w-full h-auto" alt="Sponsor 2" {}
                         }
                     }
                 }
