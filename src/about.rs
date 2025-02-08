@@ -85,7 +85,7 @@ pub async fn team_page() -> Markup {
                 "Mr. Vijayanand Rajendran - President"
             }
                 p class="mb-2  text-l tracking-tight font-extrabold text-gray-900"{
-                "Mrs. Sorna Deepa Vellaichamy - Vice President"
+                "Mrs.SornaDeepa Vellaichamy-Vice President"
             }
             //p class="mb-4 lg:mb-8 font-light sm:text-xl" {
                 p class="mb-2  text-l tracking-tight font-extrabold text-red"{

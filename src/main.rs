@@ -140,15 +140,32 @@ async fn events_page() -> Markup {
              p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
                                    a href="https://njtts.org/tny25" class="text-blue-500 underline"{"Click here to register for Tamil New Year 2025 Event"}
             }
+             p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
+                                   a href="" class="text-blue-500 underline"{"TTS 2025 Event"
+                    br;
+                                   "Parambhariyavillaiyattu"
+                    br;
+
+                                   "Tamil New year"
+                    br;
+                                   "Science Fair"
+                    br;
+                                   "Father's Day"
+                    br;
+                                   "Camping"
+                    br;
+                                   "Diwali"
+                    br;
+                                   "PechuPotti"
+            }}
+
               div  class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" {
                         img src="assets/img/posters/TTS-Parambhariyavillaiyattu_2025.jpg" class="w-full h-full object-cover" alt="TTS-Parambhariyavillaiyattu_2025" {}}
 
              a href="https://njtts.org/tny25"  class="transition-transform transform hover:scale-105 relative" {
                         img src="assets/img/posters/TTS-Tamil_New_Year_2025.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="Tamil New Year 2025 poster" {}
                     }
-                div class="flex flex-row space-x-4"{
-                            img src="assets/img/posters/fall_festival.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="fall festival Poster" {}
-                    }
+
                 }
 
                 // Add more events here as needed
@@ -157,6 +174,12 @@ async fn events_page() -> Markup {
             div class="space-y-4 px-4" {
                 h2 class="text-red-700 font-semibold" { "Past Events - 2024" }
                 div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center"{
+                div class="flex flex-row space-x-4"{
+                            img src="assets/img/posters/fall_festival.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="fall festival Poster" {}
+                    }
+             div class="flex flex-row space-x-4"{
+                            img src="assets/img/posters/Diwali-2024.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="Diwali-2024" {}
+                    }
                     div class="transition-transform transform hover:scale-105 relative aspect-w-3 aspect-h-4"{
                         img src="assets/img/posters/camping.jpeg" class="w-full h-full object-cover" alt="Camping poster" {}
                     }
@@ -168,9 +191,6 @@ async fn events_page() -> Markup {
                         img src="assets/img/posters/fathersday.jpeg" class="w-full h-full object-cover" alt="Father's Day poster" {}
             }
 
-                    div class="transition-transform transform hover:scale-105 relative aspect-w-3 aspect-h-4"{
-                        img src="assets/img/posters/TTS-Tamil_New_Year_2025.jpg" class="w-full h-full object-cover" alt="Tamil New Year poster" {}
-                    }
 
                     a href="https://drive.google.com/file/d/1tbAjLiUVyjootpo2b6hAeE4RH9vDQWy4/view?ts=66bbd394" class="transition-transform transform hover:scale-105 relative aspect-w-3 aspect-h-4"{
                         img src="assets/img/posters/villaiyattu.jpeg" class="w-full h-full object-cover" alt="Villaiyattu poster" {}
@@ -366,7 +386,43 @@ pub fn sponsors_markup() -> Markup {
 
                         }
                         div class="carousel-item min-w-full flex-shrink items-center" {
-                            img src="assets/img/Trinity-sponsor1.jpg" class="w-full h-auto" alt="Sponsor 2" {}
+                            img src="assets/img/Trinity-sponsor1.jpg"   class="w-full h-auto" alt="Sponsor 2" {}
+                            //p class="text-sm md:text-base lg:text-lg xl:text-xl 50xl:text-50xl animate-blink-color text-center" { "Gold Sponsor" }
+                         p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"{ "🎉 Gold Sponsor 🎉" }
+                       //p class="mb-5 text-5l tracking-tight font-extrabold size=100 animate-blink-color text-center" { "Gold Sponsor" }
+
+                            // h4 class="mb-5  text-xxxl tracking-tight font-extrabold animate-blink-color text-center"{
+                                                    // "Gold Sponsor"}
+                        }
+                           div class="carousel-item min-w-full flex-shrink items-center" {
+                            img src="assets/img/VELCAB-Broonze-sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
+                             // p class="mb-2  text-xxxl tracking-tight font-extrabold animate-blink-color text-center size=100"
+                             p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
+                            {"Bronze Sponsor"}
+                        }
+                         div class="carousel-item min-w-full flex-shrink items-center" {
+                            img src="assets/img/Financial-advisor-sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
+                             // p class="mb-2  text-xxxl tracking-tight font-extrabold animate-blink-color text-center size=100"
+                             p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
+                            {"Bronze Sponsor"}
+                        }
+                        div class="carousel-item min-w-full flex-shrink items-center" {
+                            img src="assets/img/Finminds-sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
+                             // p class="mb-2  text-xxxl tracking-tight font-extrabold animate-blink-color text-center size=100"
+                             p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
+                            {"Bronze Sponsor"}
+                        }
+                        div class="carousel-item min-w-full flex-shrink items-center" {
+                            img src="assets/img/NMLS-sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
+                             // p class="mb-2  text-xxxl tracking-tight font-extrabold animate-blink-color text-center size=100"
+                             p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
+                            {"Bronze Sponsor"}
+                        }
+                        div class="carousel-item min-w-full flex-shrink items-center" {
+                            img src="assets/img/Pen-Drapes-sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
+                             // p class="mb-2  text-xxxl tracking-tight font-extrabold animate-blink-color text-center size=100"
+                             p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
+                            {"Bronze Sponsor"}
                         }
                         div class="carousel-item min-w-full flex-shrink items-center" {
                             img src="assets/img/Sponsors-Package.jpg" class="w-full h-auto" alt="Sponsor 2" {}
