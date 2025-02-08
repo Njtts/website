@@ -365,7 +365,8 @@ pub fn mobile_navbar() -> Markup {
 }
 pub fn sponsors_markup() -> Markup {
     html! {
-        div class="flex flex-col items-center bg-vertical-to-pink relative mx-[10%] my-[5%]" {
+       // div class="flex flex-col items-center bg-vertical-to-white relative mx-[10%] my-[5%]" {
+            div class="flex flex-col items-center relative mx-[10%] my-[5%]" {
 
             div class="relative w-full" {
                 div class="carousel overflow-hidden relative" {
@@ -388,7 +389,7 @@ pub fn sponsors_markup() -> Markup {
                         div class="carousel-item min-w-full flex-shrink items-center" {
                             img src="assets/img/Trinity-sponsor1.jpg"   class="w-full h-auto" alt="Sponsor 2" {}
                             //p class="text-sm md:text-base lg:text-lg xl:text-xl 50xl:text-50xl animate-blink-color text-center" { "Gold Sponsor" }
-                         p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"{ "🎉 Gold Sponsor 🎉" }
+                         p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"{ " Gold Sponsor " }
                        //p class="mb-5 text-5l tracking-tight font-extrabold size=100 animate-blink-color text-center" { "Gold Sponsor" }
 
                             // h4 class="mb-5  text-xxxl tracking-tight font-extrabold animate-blink-color text-center"{
@@ -398,19 +399,21 @@ pub fn sponsors_markup() -> Markup {
                             img src="assets/img/Finminds-sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
                              // p class="mb-2  text-xxxl tracking-tight font-extrabold animate-blink-color text-center size=100"
                              p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
-                            {"🎉 Gold Sponsor 🎉"}
+                            {" Gold Sponsor "}
                         }
+
+                         div class="carousel-item min-w-full flex-shrink items-center" {
+                            img src="assets/img/Financial-advisor-sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
+                             // p class="mb-2  text-xxxl tracking-tight font-extrabold animate-blink-color text-center size=100"
+                             p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
+                            {" Silver Sponsor "}
+                        }
+
                            div class="carousel-item min-w-full flex-shrink items-center" {
                             img src="assets/img/VELCAB-Broonze-sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
                              // p class="mb-2  text-xxxl tracking-tight font-extrabold animate-blink-color text-center size=100"
                              p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
                             {"Bronze Sponsor"}
-                        }
-                         div class="carousel-item min-w-full flex-shrink items-center" {
-                            img src="assets/img/Financial-advisor-sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
-                             // p class="mb-2  text-xxxl tracking-tight font-extrabold animate-blink-color text-center size=100"
-                             p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
-                            {"Silver Sponsor"}
                         }
 
                         div class="carousel-item min-w-full flex-shrink items-center" {
