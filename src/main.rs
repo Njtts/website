@@ -408,6 +408,12 @@ pub fn sponsors_markup() -> Markup {
                              p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
                             {" Silver Sponsor "}
                         }
+                        div class="carousel-item min-w-full flex-shrink items-center" {
+                            img src="assets/img/Veda-dentist.png" class="w-full h-auto" alt="Sponsor 2" {}
+                             // p class="mb-2  text-xxxl tracking-tight font-extrabold animate-blink-color text-center size=100"
+                             p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
+                            {" Silver Sponsor "}
+                        }
 
                            div class="carousel-item min-w-full flex-shrink items-center" {
                             img src="assets/img/VELCAB-Broonze-sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
