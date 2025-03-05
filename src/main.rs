@@ -521,10 +521,6 @@ async fn home() -> Markup {
                                     a href="https://njtts.org/tny25" class="text-blue-500 underline"{"Click here"} " to register"
 
                                 }
-                                p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold animate-blink-color" {
-                                    "501(C)(3)"
-                                }
-
                         }
 
 
