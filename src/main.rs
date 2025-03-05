@@ -159,12 +159,15 @@ async fn events_page() -> Markup {
                                    "PechuPotti"
             }}
 
-              div  class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" {
-                        img src="assets/img/posters/TTS-Parambhariyavillaiyattu_2025.jpg" class="w-full h-full object-cover" alt="TTS-Parambhariyavillaiyattu_2025" {}}
-
-             a href="https://njtts.org/tny25"  class="transition-transform transform hover:scale-105 relative" {
+              div  a href="https://njtts.org/tny25"  class="transition-transform transform hover:scale-105 relative" {
                         img src="assets/img/posters/TTS-Tamil_New_Year_2025.jpg" class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" alt="Tamil New Year 2025 poster" {}
                     }
+
+
+           div class="w-full max-w-xs md:max-w-sm lg:max-w-md object-cover" {
+                        img src="assets/img/posters/TTS-Parambhariyavillaiyattu_2025.jpg" class="w-full h-full object-cover" alt="TTS-Parambhariyavillaiyattu_2025" {}}
+
+
 
                 }
 
@@ -370,7 +373,7 @@ pub fn sponsors_markup() -> Markup {
 
             div class="relative w-full" {
                 div class="carousel overflow-hidden relative" {
-                    div class="carousel-items flex transition-transform duration-500 ease-in-out" id="carousel-items" {
+                    div class="carousel-items flex transition-transform duration-4500 ease-in-out" id="carousel-items" {
                         // Repeat the following div for each sponsor image
                         div class="carousel-item min-w-full flex-shrink items-center" {
                            // img src="assets/img/sponsor.jpg" class="w-full h-auto" alt="Sponsor 1" {}
@@ -414,6 +417,12 @@ pub fn sponsors_markup() -> Markup {
                              p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
                             {" Silver Sponsor "}
                         }
+                         div class="carousel-item min-w-full flex-shrink items-center" {
+                            img src="assets/img/Penn-Drapes-Final.jpeg" class="w-full h-auto" alt="Sponsor 2" {}
+                             // p class="mb-2  text-xxxl tracking-tight font-extrabold animate-blink-color text-center size=100"
+                             p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
+                            {"Bronze Sponsor"}
+                        }
 
                            div class="carousel-item min-w-full flex-shrink items-center" {
                             img src="assets/img/VELCAB-Broonze-sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
@@ -428,23 +437,12 @@ pub fn sponsors_markup() -> Markup {
                              p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
                             {"Bronze Sponsor"}
                         }
-                        div class="carousel-item min-w-full flex-shrink items-center" {
-                            img src="assets/img/Pen-Drapes-sponsor.jpg" class="w-full h-auto" alt="Sponsor 2" {}
-                             img src="assets/img/saree-drape-logo.png" class="w-full h-auto" alt="Sponsor 2" {}
-                             // p class="mb-2  text-xxxl tracking-tight font-extrabold animate-blink-color text-center size=100"
-                             p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
-                            {"Bronze Sponsor"}
-                        }
+
                           div class="carousel-item min-w-full flex-shrink items-center" {
                            img src="assets/img/Rajini-Food-Partner.png" class="w-full h-auto" alt="Sponsor 2" {}
                              // p class="mb-2  text-xxxl tracking-tight font-extrabold animate-blink-color text-center size=100"
                              p class="text-lg md:text-2xl lg:text-5xl xl:text-5xl 100xl:text-100xl font-bold animate-blink-color text-center"
                             {"Food Partner"}
-                        }
-
-
-                        div class="carousel-item min-w-full flex-shrink items-center" {
-                            img src="assets/img/Sponsors-Package.jpg" class="w-full h-auto" alt="Sponsor 2" {}
                         }
                     }
                 }
@@ -522,6 +520,9 @@ async fn home() -> Markup {
                                 p class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold cursor-pointer"{
                                     a href="https://njtts.org/tny25" class="text-blue-500 underline"{"Click here"} " to register"
 
+                                }
+                                p class="text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold animate-blink-color" {
+                                    "501(C)(3)"
                                 }
 
                         }
