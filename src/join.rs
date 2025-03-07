@@ -76,6 +76,7 @@ pub async fn join_page() -> Markup {
                             input type="checkbox" id="agree_emails" name="agree_emails" class="h-4 w-4 text-red-500 focus:ring-red-400 border-gray-300 rounded" {}
                             label for="agree_emails" class="ml-2 block text-sm text-gray-900" { "I agree to receive emails from the NJTTS team for promotions and upcoming event reminders" }
                         }
+
                         p class="text-center text-sm"{"NJTTS does not share personal details with any third party"}
 
 
@@ -93,13 +94,14 @@ pub async fn join_page() -> Markup {
         }
     }
 }
-#[derive(Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct JoinFormData {
     first_name: String,
     last_name: String,
     email: String,
     phone: String,
-    agree_emails: bool,
+    #[serde(default)]
+    agree_emails: String,
 }
 
 pub async fn join_response(State(s): State<ClientState>, Form(data): Form<JoinFormData>) -> Markup {
