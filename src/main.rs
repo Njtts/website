@@ -217,7 +217,10 @@ async fn index() -> Markup {
 pub fn mobile_navbar() -> Markup {
     html! {
         div class="flex bg-pink-to-white md:hidden" {
+            div class = "flex flex-col item-center" {
                     img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
+            p class =  "text-Navy-500 font-extrabold" {"501(C)(3)-Non-Profit"}
+            }
                     div class="flex flex-col py-2 text-sm"{
                         div class="flex justify-center flex-grow"{
 
@@ -564,20 +567,19 @@ async fn home() -> Markup {
 }
 async fn navbar() -> Markup {
     html! {
-        nav id="navb" class=" bg-pink-to-white p-4"{
+        nav id="navb" class="bg-pink-to-white p-4"{
 
             div class="container mx-auto flex items-center justify-between gap-6"{
+                div class = "flex flex-col items-center" {
                 div class = "flex items-center gap-4"
                     hx-get="/home" hx-trigger="click" hx-target="#page" {
                         img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
 
-
-
-
                 }
+                    p class =  "text-red-500" {"TTS – A Non-Profit 501(C)(3)"}
+                }
+
                div class="flex justify-center flex-grow"{
-
-
                     div class="hover:text-blue-700 hover:underline px-4 py-2 rounded"
                       hx-get="/home" hx-trigger="click" hx-target="#page" {
                         "Home"
@@ -596,7 +598,6 @@ async fn navbar() -> Markup {
                               hx-get="/about/about" hx-trigger="click" hx-target="#page" {
                                 "About Us"
                             }
-
                             div class="hover:text-blue-700 hover:underline px-4 py-2"
                               hx-get="/byLaw" hx-trigger="click" hx-target="#page" {
                                 "Bylaw"
