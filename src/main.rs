@@ -219,7 +219,7 @@ pub fn mobile_navbar() -> Markup {
         div class="flex bg-pink-to-white md:hidden" {
             div class = "flex flex-col item-center" {
                     img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
-            p class =  "text-Navy-500 font-extrabold" {"501(C)(3)-Non-Profit"}
+           // p class =  "text-Navy-500 font-extrabold" {"501(C)(3)-Non-Profit"}
             }
                     div class="flex flex-col py-2 text-sm"{
                         div class="flex justify-center flex-grow"{
@@ -576,7 +576,7 @@ async fn navbar() -> Markup {
                         img src="assets/img/logo.jpg" class="h-28 w-28 rounded-full object-cover" alt="Logo" {}
 
                 }
-                    p class =  "text-red-500" {"TTS – A Non-Profit 501(C)(3)"}
+                   // p class =  "text-red-500" {"TTS – A Non-Profit 501(C)(3)"}
                 }
 
                div class="flex justify-center flex-grow"{
