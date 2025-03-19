@@ -24,7 +24,6 @@ fn body(content: Markup) -> Markup {
                 }
                 (mobile_navbar())
 
-
                 div class="flex-grow" {
                     (content)
                 }
