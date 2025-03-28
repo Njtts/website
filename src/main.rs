@@ -67,6 +67,7 @@ async fn main() {
         .route("/join_response", post(join_response))
         .route("/sponsors", get(under_construction))
         .route("/tny25", get(newyear_redirect))
+        .route("/tny25S", get(pgmSchedule_redirect))
         .route("/library", get(under_construction))
         .route("/faq", get(under_construction))
         .with_state(client_state)
@@ -90,6 +91,28 @@ pub async fn newyear_redirect() -> Markup {
                     "If you are not redirected, "
                    // a href="https://forms.gle/bkuLehsKS1Y5Gfrv5" { "click here" }
                     a href="https://forms.gle/BFTQZzQ8B19hvseJ8" { "click here" }
+                    "."
+                }
+            }
+        }
+    }
+}
+
+pub async fn pgmSchedule_redirect() -> Markup {
+    html! {
+        (DOCTYPE)
+        html lang="en" {
+            head {
+                meta charset="UTF-8";
+                //meta http-equiv="refresh" content="0; url=https://forms.gle/bkuLehsKS1Y5Gfrv5";
+                meta http-equiv="refresh" content="0; url=https://docs.google.com/spreadsheets/d/1SVuRdgiWkNfRw4NV_sUKw2kniT98Iulw/edit?usp=sharing&ouid=102627512621447650689&rtpof=true&sd=true";
+                title { "Redirecting..." }
+            }
+            body {
+                p {
+                    "If you are not redirected, "
+                   // a href="https://forms.gle/bkuLehsKS1Y5Gfrv5" { "click here" }
+                    a href="https://docs.google.com/spreadsheets/d/1SVuRdgiWkNfRw4NV_sUKw2kniT98Iulw/edit?usp=sharing&ouid=102627512621447650689&rtpof=true&sd=true" { "click here" }
                     "."
                 }
             }
@@ -530,6 +553,7 @@ async fn home() -> Markup {
                                     a href="https://njtts.org/tny25" class="text-blue-500 underline"{"Click here"} " to register"
 
                                 }
+
                         }
 
 
